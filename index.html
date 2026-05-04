@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kanagaraj (Raj) Pandiarajan - UI/UX Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #f7f6f2;
+      --ink:          #1a1a1a;
+      --primary:      #4a4a4a;
+      --secondary:    #6b6b6b;
+      --tertiary:     #a0a0a0;
+      --accent:       #C2622D;
+      --accent-light: #fdf0e8;
+      --about-color:  #C2622D;
+      --border:       #e5e3dc;
+      --white:        #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: #4a4a4a;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      margin-top: 17vh;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: transparent;
+      padding: 20px 40px;
+      min-height: 68px;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      color: #1a1a1a;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 400;
+      color: #6b6b6b;
+      text-decoration: none;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a:hover { color: #1a1a1a; }
+
+    .nav-links a.active {
+      color: #1a1a1a;
+      border-bottom: 2px solid #C2622D;
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .col-content {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* HERO */
+    .hero {
+      padding-top: 120px;
+      padding-bottom: 100px;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      color: #6b6b6b;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: #1a1a1a;
+      margin-bottom: 24px;
+    }
+
+    .hero h6 {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: #6b6b6b;
+      margin-bottom: 32px;
+    }
+
+    .hero-intro {
+      font-size: 16px;
+      font-weight: 400;
+      color: #6b6b6b;
+      max-width: 520px;
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+
+    .hero-intro strong {
+      font-weight: 500;
+      color: #1a1a1a;
+    }
+
+    /* CTA BUTTONS */
+    .cta-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: #1a1a1a;
+      color: #ffffff;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: #333333;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid #e5e3dc;
+      color: #1a1a1a;
+      font-weight: 400;
+    }
+
+    .btn-secondary:hover {
+      border-color: #C2622D;
+      color: #C2622D;
+    }
+
+    /* SECTION LABEL */
+    .section-label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #1a1a1a;
+      margin-bottom: 2.5rem;
+      border-left: 2px solid #C2622D;
+      padding-left: 8px;
+    }
+
+    /* PROJECT ITEM */
+    .project-item {
+      background: #ffffff;
+      border: 1px solid #e5e3dc;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: stretch;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .project-item:hover {
+      border-color: #C2622D;
+      border-left-color: #C2622D;
+      transform: translateY(-2px);
+    }
+
+    .project-cover-wrap {
+      width: 45%;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #f0eeea;
+      min-height: 260px;
+      flex-shrink: 0;
+    }
+
+    .project-cover {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .project-cover img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.4s cubic-bezier(.02,.01,.47,1);
+    }
+
+    .project-item:hover .project-cover img { transform: scale(1.04); }
+
+    .project-meta {
+      width: 55%;
+      padding-left: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .project-num {
+      font-size: 11px;
+      color: #a0a0a0;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .project-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.6rem;
+      letter-spacing: -0.02em;
+      color: #1a1a1a;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-tags { margin-bottom: 0.75rem; }
+
+    .project-desc {
+      font-size: 15px;
+      font-weight: 400;
+      color: #6b6b6b;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .project-link {
+      color: #C2622D;
+      font-size: 14px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+
+    .project-arrow { transition: transform 0.2s; }
+    .project-item:hover .project-arrow { transform: translateX(4px); }
+
+    /* Live badge */
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 500;
+      color: #16a34a;
+      margin-bottom: 8px;
+    }
+
+    .live-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #22c55e;
+      animation: pulse-green 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse-green {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.55; transform: scale(1.3); }
+    }
+
+    /* Coming soon state */
+    .project-item.coming-soon {
+      pointer-events: none;
+      opacity: 0.45;
+    }
+
+    /* HIGHLIGHT TEXT */
+    .highlight-text {
+      background: #fdf0e8;
+      color: #C2622D;
+      padding: 1px 4px;
+      border-radius: 3px;
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    .underline-accent {
+      text-decoration: underline;
+      text-decoration-color: #C2622D;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+      font-weight: 400;
+      color: inherit;
+    }
+
+    /* ACCENT LINK (Numentica UI etc.) */
+    .link-accent,
+    .link-accent:hover,
+    .link-accent:visited,
+    .link-accent:active {
+      color: #C2622D;
+      text-decoration: none !important;
+      border-bottom: none !important;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .link-accent:hover { color: #a8521f; }
+
+    a[href*="numentica"],
+    a[href*="numentica"]:hover,
+    a[href*="numentica"]:visited,
+    a[href*="numentica"]:active,
+    .numentica-link {
+      text-decoration: none !important;
+      border-bottom: none !important;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 80px;
+      padding: 3rem 2rem;
+      border-top: 1px solid #e5e3dc;
+      text-align: center;
+    }
+
+    .footer-icons {
+      text-align: center;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .footer-icon {
+      display: inline-block;
+      color: #6b6b6b;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .footer-icon:hover { color: #1a1a1a; }
+
+    .footer-copy {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      color: #a0a0a0;
+      text-align: center;
+    }
+
+    /* FADE UP */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      body { margin-top: 80px; }
+
+      nav {
+        background: var(--bg);
+        box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        padding: 16px 20px;
+        position: fixed;
+      }
+
+      .container { padding: 0 20px; }
+      .col-content { max-width: 100%; }
+
+      .project-item {
+        flex-direction: column;
+      }
+
+      .project-cover-wrap {
+        width: 100%;
+        min-height: 200px;
+      }
+
+      .project-meta {
+        width: 100%;
+        padding-left: 0;
+        padding-top: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html">Kanagaraj (Raj)</a>
+      <ul class="nav-links">
+        <li><a href="#my-work">Projects</a></li>
+        <li><a href="#">Resume</a></li>
+        <li><a href="about-me.html">About Me</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main>
+    <div class="container">
+      <div class="col-content">
+
+        <!-- Hero -->
+        <section class="hero">
+          <div class="hero-eyebrow fade-up">UI/UX Designer · Chennai</div>
+          <h1 class="fade-up">Every problem has a user. Every user deserves great design.</h1>
+          <h6 class="fade-up">UI/UX Designer · Design Thinker · Tech Enthusiast</h6>
+          <p class="hero-intro fade-up">
+            Hello, I'm <strong>Raj</strong> - a <span style="color:#C2622D;font-weight:500;">UI/UX Designer</span> at Numentica UI,
+            crafting experiences that are as thoughtful as they are beautiful. I <span class="highlight-text">design with empathy</span>,
+            build with systems, and <span class="highlight-text">obsess over the details</span> that make people say this just works.
+          </p>
+          <div class="cta-group fade-up">
+            <a href="#my-work" class="btn btn-primary">View My Work</a>
+            <a href="mailto:kanagarajux@gmail.com" class="btn btn-secondary">Get in Touch</a>
+          </div>
+        </section>
+
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <!-- Work Section -->
+        <section id="my-work">
+          <p class="section-label fade-up">Selected Work</p>
+
+          <!-- Project 01 - Anyform -->
+          <a href="works/anyform.html" class="project-item fade-up">
+            <div class="project-cover-wrap">
+              <div class="project-cover">
+                <img src="assets/images/anyform/New%20Form%20Autofill%20Extension.png" alt="Anyform Chrome Extension UI" />
+              </div>
+            </div>
+            <div class="project-meta">
+              <span class="project-num">Project 01</span>
+              <h2 class="project-title">Anyform</h2>
+              <p class="project-tags">
+                <span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">UX Research</span><span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">Chrome Extension</span><span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">AI Product Design</span>
+              </p>
+              <p class="project-desc">An AI-powered Chrome extension that eliminates repetitive form filling - <span class="highlight-text">saving agencies up to 80% of their time</span>.</p>
+              <span class="project-link">View Case Study <span class="project-arrow">&#8594;</span></span>
+            </div>
+          </a>
+
+          <!-- Project 02 - TeleDoctor -->
+          <a href="works/teledoctor.html" class="project-item fade-up">
+            <div class="project-cover-wrap">
+              <div class="project-cover">
+                <img src="assets/images/teledoctor/Patient/Dashboard.png" alt="TeleDoctor Patient Dashboard" />
+              </div>
+            </div>
+            <div class="project-meta">
+              <span class="live-badge"><span class="live-badge-dot"></span>Live Product</span>
+              <span class="project-num">Project 02</span>
+              <h2 class="project-title">TeleDoctor</h2>
+              <p class="project-tags">
+                <span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">0&rarr;1 Product Design</span><span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">Healthcare UX</span><span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">Web &amp; Mobile</span><span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">Figma</span>
+              </p>
+              <p class="project-desc">A telehealth platform designed from scratch for <span class="highlight-text">rural India</span> - connecting patients, doctors, and community facilitation centers to make healthcare accessible anytime, anywhere.</p>
+              <span class="project-link">View Case Study <span class="project-arrow">&#8594;</span></span>
+            </div>
+          </a>
+
+          <!-- Project 03 - Harbour Air -->
+          <a href="works/harbourair.html" class="project-item fade-up">
+            <div class="project-cover-wrap">
+              <div class="project-cover">
+                <img src="assets/images/harbourair/Concept%203-3.png" alt="Harbour Air Website Redesign" />
+              </div>
+            </div>
+            <div class="project-meta">
+              <span class="project-num">Project 03</span>
+              <h2 class="project-title">Harbour Air Website Revamp</h2>
+              <p class="project-tags">
+                <span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">UX Redesign</span><span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">Information Architecture</span><span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">Booking Flow</span><span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">Figma</span>
+              </p>
+              <p class="project-desc">A complete UI/UX revamp of <span class="highlight-text">North America's largest seaplane airline</span> - untangling a cluttered, outdated website into a clean, conversion-focused booking experience.</p>
+              <span class="project-link">View Case Study <span class="project-arrow">&#8594;</span></span>
+            </div>
+          </a>
+
+          <!-- Project 04 - CareerJourney -->
+          <a href="works/careerjourney.html" class="project-item fade-up">
+            <div class="project-cover-wrap">
+              <div class="project-cover">
+                <img src="assets/images/CJ/Dashboard.png" alt="CareerJourney Dashboard" />
+              </div>
+            </div>
+            <div class="project-meta">
+              <span class="project-num">Project 04</span>
+              <h2 class="project-title">CareerJourney</h2>
+              <p class="project-tags">
+                <span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">0&rarr;1 Product Design</span><span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">Web App</span><span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">AI Features</span><span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">Career Tech</span>
+              </p>
+              <p class="project-desc">A comprehensive career development platform <span class="highlight-text">built from scratch</span> - connecting professionals through trusted networks, AI-powered career tools, live sessions, and community groups.</p>
+              <span class="project-link">View Case Study <span class="project-arrow">&#8594;</span></span>
+            </div>
+          </a>
+
+        </section>
+
+      </div><!-- /col-content -->
+    </div><!-- /container -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-icons">
+      <a class="footer-icon" href="https://linkedin.com/in/kanagarajp25" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="footer-icon" href="mailto:kanagarajux@gmail.com">Email</a>
+      <a class="footer-icon" href="#">Resume</a>
+    </div>
+    <p class="footer-copy">Designed &amp; built by Kanagaraj (Raj) Pandiarajan &copy; 2025</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me - Kanagaraj (Raj) Pandiarajan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #f7f6f2;
+      --ink:          #1a1a1a;
+      --primary:      #4a4a4a;
+      --secondary:    #6b6b6b;
+      --tertiary:     #a0a0a0;
+      --accent:       #C2622D;
+      --accent-light: #fdf0e8;
+      --border:       #e5e3dc;
+      --white:        #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: #4a4a4a;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      margin-top: 17vh;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: transparent;
+      padding: 20px 40px;
+      min-height: 68px;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      color: #1a1a1a;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 400;
+      color: #6b6b6b;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: #1a1a1a; }
+
+    .nav-links a.active {
+      color: #1a1a1a;
+      border-bottom: 2px solid #C2622D;
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* PAGE HEADER */
+    .page-header {
+      max-width: 600px;
+      padding-bottom: 48px;
+    }
+
+    .page-header h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+    }
+
+    .page-header h6 {
+      font-size: 15px;
+      font-weight: 400;
+      color: #6b6b6b;
+    }
+
+    /* TWO-COLUMN LAYOUT */
+    .page-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 80px;
+      align-items: start;
+    }
+
+    /* LEFT COLUMN */
+    .main-col {}
+
+    /* SECTIONS TRACK */
+    .sections-track { position: relative; }
+
+    /* CONTENT BLOCKS */
+    .content-block {
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-left: 3px solid #C2622D;
+      padding-left: 1.25rem;
+    }
+
+    .content-block + .content-block {
+      border-top: 1px solid #e5e3dc;
+    }
+
+    .content-block h5 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #1a1a1a;
+      letter-spacing: -0.01em;
+      line-height: 1.4;
+      margin-bottom: 16px;
+    }
+
+    .content-block p {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.85;
+      color: #4a4a4a;
+      margin-bottom: 20px;
+    }
+
+    .content-block p:last-child { margin-bottom: 0; }
+
+    /* ACCENT LINK */
+    .link-accent,
+    .link-accent:hover,
+    .link-accent:visited,
+    .link-accent:active {
+      color: #C2622D;
+      text-decoration: none !important;
+      border-bottom: none !important;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .link-accent:hover { color: #a8521f; }
+
+    a[href*="numentica"],
+    a[href*="numentica"]:hover,
+    a[href*="numentica"]:visited,
+    a[href*="numentica"]:active,
+    .numentica-link {
+      text-decoration: none !important;
+      border-bottom: none !important;
+    }
+
+    /* UNDERLINE ACCENT */
+    .highlight-text {
+      background: #fdf0e8;
+      color: #C2622D;
+      padding: 1px 4px;
+      border-radius: 3px;
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    /* RIGHT SIDEBAR */
+    .sidebar-col {
+      position: sticky;
+      top: 80px;
+      align-self: flex-start;
+    }
+
+    /* Portrait placeholder - DO NOT TOUCH */
+    .sidebar-portrait {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: #ddd0b8;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--secondary);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+      overflow: hidden;
+    }
+
+    /* Sidebar info groups */
+    .sidebar-group {
+      border-left: 2px solid #e5e3dc;
+      padding-left: 24px;
+      margin-bottom: 32px;
+    }
+
+    .sidebar-group h5 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #1a1a1a;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .sidebar-group a {
+      display: block;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 400;
+      line-height: 1.9;
+      transition: opacity 0.2s;
+    }
+
+    .sidebar-group a:hover { opacity: 0.65; }
+
+    .sidebar-group p {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: #6b6b6b;
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 80px;
+      padding: 3rem 2rem;
+      border-top: 1px solid #e5e3dc;
+      text-align: center;
+    }
+
+    .footer-icons {
+      text-align: center;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .footer-icon {
+      display: inline-block;
+      color: #6b6b6b;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .footer-icon:hover { color: #1a1a1a; }
+
+    .footer-copy {
+      font-size: 12px;
+      font-weight: 400;
+      color: #a0a0a0;
+      text-align: center;
+    }
+
+    /* FADE UP */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      .page-layout {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .sidebar-col {
+        position: static;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        align-items: start;
+      }
+
+      .sidebar-portrait {
+        grid-column: 1 / -1;
+        aspect-ratio: 16/9;
+      }
+    }
+
+    @media (max-width: 680px) {
+      body { margin-top: 80px; }
+
+      nav {
+        background: var(--bg);
+        box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        padding: 16px 20px;
+      }
+
+      .container { padding: 0 20px; }
+      .page-header { padding-bottom: 32px; }
+
+      .sidebar-col {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar-portrait {
+        aspect-ratio: 4/3;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html">Kanagaraj (Raj)</a>
+      <ul class="nav-links">
+        <li><a href="index.html#my-work">Projects</a></li>
+        <li><a href="#">Resume</a></li>
+        <li><a href="about-me.html" class="active">About Me</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main>
+    <div class="container">
+
+      <!-- Full-width page header -->
+      <header class="page-header fade-up">
+        <h1>This is Raj</h1>
+        <h6>
+          UI/UX Designer · Design Thinker · Tech Enthusiast
+        </h6>
+      </header>
+
+      <!-- Two-column layout -->
+      <div class="page-layout">
+
+        <!-- LEFT: main content -->
+        <div class="main-col">
+          <div class="sections-track">
+
+            <!-- Section 1 -->
+            <div class="content-block fade-up">
+              <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:2.5rem;color:#e5e3dc;line-height:1;display:block;margin-bottom:0.25rem;">01</span>
+              <h5>Empathy Driven Designer</h5>
+              <p>
+                I'm Kanagaraj - Raj - a <span style="color:#C2622D;font-weight:500;">UI/UX Designer</span> at Numentica UI, based in Chennai.
+                My work starts long before any wireframe. I believe that every pixel earns its place only after
+                you've understood the person it's meant to serve. Before I open Figma, I'm in the field -
+                conducting user interviews, running competitive audits, mapping journey flows, synthesising
+                patterns from real human frustration.
+              </p>
+              <p>
+                Growing up obsessed with how things feel to use - why one app delights and another
+                exhausts - led me naturally into design. I've spent years honing a research-first philosophy
+                that puts empathy at the core of every decision. At Numentica UI, that philosophy shapes how
+                the whole team approaches product challenges: listen first, design second.
+              </p>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="content-block fade-up">
+              <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:2.5rem;color:#e5e3dc;line-height:1;display:block;margin-bottom:0.25rem;">02</span>
+              <h5>Design Thinker</h5>
+              <p>
+                Good design isn't decoration - it's a solution. I map the full journey from pain point to pixel,
+                because a beautiful interface that solves the wrong problem is still the wrong interface.
+              </p>
+              <p>
+                On <a href="works/anyform.html" class="link-accent">Anyform</a>, I discovered that paralegals and visa
+                consultants were spending an average of 155 minutes filling the DS-160 form - every single time,
+                for every single client. That's 15+ hours a week per paralegal, entirely on mechanical
+                repetition. I didn't just redesign the form - I redesigned the entire workflow, reducing a
+                155-minute process to under 15 minutes.
+              </p>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="content-block fade-up">
+              <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:2.5rem;color:#e5e3dc;line-height:1;display:block;margin-bottom:0.25rem;">03</span>
+              <h5>Code Aware Designer</h5>
+              <p>
+                The best handoff I've ever done was the one where the developer asked zero questions. I
+                understand component logic, auto-layout constraints, design tokens, and what "responsive"
+                actually means in code - not just in Figma. This lets me design things that are both
+                beautiful and buildable.
+              </p>
+              <p>
+                Working closely with engineers has made me a sharper designer. I've learned to think in
+                systems - design systems, component libraries, spacing scales - so that every screen I ship
+                feels like it belongs to the same product universe. The gap between design and engineering
+                isn't a technical problem. It's a communication problem. I've made closing that gap part
+                of my craft.
+              </p>
+            </div>
+
+          </div><!-- /sections-track -->
+        </div><!-- /main-col -->
+
+        <!-- RIGHT: sticky sidebar -->
+        <aside class="sidebar-col fade-up">
+
+          <!-- Portrait - DO NOT TOUCH -->
+          <div class="sidebar-portrait">
+            <img src="assets/images/Aboutme/PHOTO-2026-05-03-15-16-54.jpg" alt="Kanagaraj (Raj) Pandiarajan" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
+          </div>
+
+          <!-- Contact -->
+          <div class="sidebar-group">
+            <h5>Contact</h5>
+            <a href="mailto:kanagarajux@gmail.com">kanagarajux@gmail.com</a>
+          </div>
+
+          <!-- Resume -->
+          <div class="sidebar-group">
+            <h5>Resume</h5>
+            <a href="https://linkedin.com/in/kanagarajp25" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="#">Resume PDF</a>
+          </div>
+
+          <!-- Interests -->
+          <div class="sidebar-group">
+            <h5>Interests</h5>
+            <div style="display:flex;flex-wrap:wrap;margin-top:4px;">
+              <span style="background:#fdf0e8;color:#C2622D;font-size:12px;padding:4px 12px;border-radius:100px;margin:3px;display:inline-block;">UI Exploration</span>
+              <span style="background:#fdf0e8;color:#C2622D;font-size:12px;padding:4px 12px;border-radius:100px;margin:3px;display:inline-block;">Mobile Design Trends</span>
+              <span style="background:#fdf0e8;color:#C2622D;font-size:12px;padding:4px 12px;border-radius:100px;margin:3px;display:inline-block;">AI &amp; Product Design</span>
+              <span style="background:#fdf0e8;color:#C2622D;font-size:12px;padding:4px 12px;border-radius:100px;margin:3px;display:inline-block;">Music &amp; Cricket</span>
+              <span style="background:#fdf0e8;color:#C2622D;font-size:12px;padding:4px 12px;border-radius:100px;margin:3px;display:inline-block;">Photography</span>
+            </div>
+          </div>
+
+          <!-- Based in -->
+          <div class="sidebar-group">
+            <h5>Based In</h5>
+            <p>Chennai, India<br>Open to remote &amp; relocation</p>
+          </div>
+
+        </aside>
+
+      </div><!-- /page-layout -->
+    </div><!-- /container -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-icons">
+      <a class="footer-icon" href="https://linkedin.com/in/kanagarajp25" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="footer-icon" href="mailto:kanagarajux@gmail.com">Email</a>
+      <a class="footer-icon" href="#">Resume</a>
+    </div>
+    <p class="footer-copy">Designed &amp; built by Kanagaraj (Raj) Pandiarajan &copy; 2025</p>
+  </footer>
+
+  <script>
+    // Fade-up on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  </script>
+</body>
+</html>

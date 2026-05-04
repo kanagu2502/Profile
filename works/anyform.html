@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anyform Case Study - Kanagaraj (Raj) Pandiarajan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #f7f6f2;
+      --ink:          #1a1a1a;
+      --primary:      #4a4a4a;
+      --secondary:    #6b6b6b;
+      --tertiary:     #a0a0a0;
+      --accent:       #C2622D;
+      --accent-light: #fdf0e8;
+      --about-color:  #C2622D;
+      --border:       #e5e3dc;
+      --white:        #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: #4a4a4a;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      margin-top: 17vh;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: transparent;
+      padding: 20px 40px;
+      min-height: 68px;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      color: #1a1a1a;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 400;
+      color: #6b6b6b;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: #1a1a1a; }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .col-content {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* ARTICLE HEADER */
+    .article-header {
+      text-align: center;
+      padding-bottom: 8px;
+    }
+
+    .article-header .back-link {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: #6b6b6b;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      margin-bottom: 28px;
+      transition: color 0.2s;
+    }
+
+    .article-header .back-link:hover { color: #1a1a1a; }
+
+    .article-header h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.4rem, 5vw, 3.5rem);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: #1a1a1a;
+      margin-bottom: 14px;
+    }
+
+    .article-header .article-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: #6b6b6b;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .article-meta {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: #a0a0a0;
+    }
+
+    .article-meta span strong {
+      font-weight: 500;
+      color: #6b6b6b;
+    }
+
+    /* JUMBOTRON */
+    .project-jumbotron {
+      width: 100%;
+      border-radius: 16px;
+      margin: 48px 0;
+      overflow: hidden;
+      box-shadow: 0 12px 56px rgba(28, 25, 23, 0.22), 0 2px 12px rgba(28, 25, 23, 0.10);
+    }
+
+    .project-jumbotron img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* GROUP (section) */
+    .group {
+      margin-bottom: 8px;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+
+    .group h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #1a1a1a;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .group h3 .section-num {
+      font-size: 11px;
+      font-weight: 600;
+      color: #C2622D;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 4px;
+      text-align: center;
+    }
+
+    /* SUBGROUP */
+    .subgroup {
+      padding-bottom: 32px;
+    }
+
+    .subgroup h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+      color: #1a1a1a;
+      margin-bottom: 14px;
+    }
+
+    .subgroup h5 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .subgroup p {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.8;
+      color: #4a4a4a;
+      margin-bottom: 20px;
+    }
+
+    .subgroup p:last-child { margin-bottom: 0; }
+
+    .subgroup ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    .subgroup ul li {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #4a4a4a;
+      line-height: 1.7;
+      padding: 6px 0 6px 20px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .subgroup ul li:first-child { border-top: 1px solid var(--border); }
+
+    .subgroup ul li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #C2622D;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    /* LEFT-BORDER HEADING */
+    .about-h5 {
+      border-left: 5px solid #C2622D;
+      padding-left: 20px;
+      margin-left: -25px;
+      margin-bottom: 20px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #1a1a1a;
+      line-height: 1.4;
+    }
+
+    /* STAT ROW */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 32px 0;
+    }
+
+    .stat-item {
+      padding: 1.5rem;
+      background: #f7f6f2;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 2.5rem;
+      letter-spacing: -0.04em;
+      color: #C2622D;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      color: #6b6b6b;
+      line-height: 1.4;
+    }
+
+    /* TWO COLUMN */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 24px 0;
+    }
+
+    .two-col-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .two-col-card h5 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .two-col-card p {
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: #6b6b6b;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* CASE STUDY IMAGES */
+    .case-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0 2px 20px rgba(28, 25, 23, 0.09);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .case-img:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 36px rgba(28, 25, 23, 0.14);
+    }
+
+    .img-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: 24px 0;
+    }
+
+    .img-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 24px 0;
+    }
+
+    .img-grid-full {
+      margin: 20px 0;
+    }
+
+    .img-caption {
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: #a0a0a0;
+      margin-top: 7px;
+      font-style: italic;
+    }
+
+    /* PERSONA CARDS */
+    .persona-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .persona-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      transition: border-color 0.2s;
+    }
+
+    .persona-card:hover { border-color: #C2622D; }
+
+    .persona-card .persona-icon {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .persona-card h5 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: #1a1a1a;
+      margin-bottom: 6px;
+    }
+
+    .persona-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: #6b6b6b;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* QUOTE BLOCK */
+    .quote-block {
+      background: #f7f6f2;
+      border-left: 4px solid #C2622D;
+      padding: 2rem 2.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 3rem 0;
+    }
+
+    .quote-block p {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.9;
+      color: #4a4a4a;
+      margin: 0;
+    }
+
+    /* OUTCOME ROW */
+    .outcome-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .outcome-item {
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #ffffff;
+    }
+
+    .outcome-before {
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: #a0a0a0;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 4px;
+    }
+
+    .outcome-val {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .outcome-val.good { color: #C2622D; }
+    .outcome-val.bad  { color: #e11d48; }
+
+    .outcome-desc {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: #6b6b6b;
+      line-height: 1.5;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 80px;
+      padding: 3rem 2rem;
+      border-top: 1px solid #e5e3dc;
+      text-align: center;
+    }
+
+    .footer-icons {
+      text-align: center;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .footer-icon {
+      display: inline-block;
+      color: #6b6b6b;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .footer-icon:hover { color: #1a1a1a; }
+
+    .footer-copy {
+      font-size: 12px;
+      font-weight: 400;
+      color: #a0a0a0;
+      text-align: center;
+    }
+
+    /* HIGHLIGHT TEXT */
+    .highlight-text {
+      background: #fdf0e8;
+      color: #C2622D;
+      padding: 1px 4px;
+      border-radius: 3px;
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    .underline-accent {
+      text-decoration: underline;
+      text-decoration-color: #C2622D;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    /* FADE UP */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      body { margin-top: 80px; }
+
+      nav {
+        background: var(--bg);
+        box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        padding: 16px 20px;
+        position: fixed;
+      }
+
+      .container { padding: 0 20px; }
+      .col-content { max-width: 100%; }
+
+      .stats-row { grid-template-columns: 1fr; }
+
+      .two-col { grid-template-columns: 1fr; }
+      .persona-grid { grid-template-columns: 1fr; }
+      .img-grid,
+      .img-grid-3 { grid-template-columns: 1fr; }
+      .outcome-row { grid-template-columns: 1fr; }
+
+      .about-h5 { margin-left: -21px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="../index.html">Kanagaraj (Raj)</a>
+      <ul class="nav-links">
+        <li><a href="../index.html#my-work">Projects</a></li>
+        <li><a href="#">Resume</a></li>
+        <li><a href="../about-me.html">About Me</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main>
+    <div class="container">
+      <div class="col-content">
+
+        <!-- Article Header -->
+        <header class="article-header fade-up">
+          <a href="../index.html#my-work" class="back-link">&#8592; Back to Projects</a>
+          <h1>Anyform</h1>
+          <p class="article-subtitle">
+            <span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">AI Chrome Extension</span><span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">UX Research</span><span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">End-to-End Product Design</span>
+          </p>
+          <div class="article-meta">
+            <span><strong>Role</strong> Lead UX Designer &amp; Researcher - End to End</span>
+            <span><strong>Duration</strong> Jan 2025 - Present</span>
+          </div>
+        </header>
+
+        <!-- Jumbotron -->
+        <div class="project-jumbotron fade-up">
+          <img src="../assets/images/anyform/Demo%20VIdeo.png" alt="Anyform - product overview" />
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-row fade-up">
+          <div class="stat-item">
+            <div class="stat-num">155&#8594;15</div>
+            <div class="stat-label">Minutes per form<br>filing session</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">80%</div>
+            <div class="stat-label">Time saved for<br>agencies</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">3-4&#215;</div>
+            <div class="stat-label">Agency throughput<br>increase</div>
+          </div>
+        </div>
+
+        <!-- SECTION 1: OVERVIEW -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">01</span>Overview</h3>
+          <div class="subgroup">
+            <h4 class="about-h5">What is Anyform?</h4>
+            <p>
+              Anyform is an AI-powered Chrome extension designed to eliminate the repetitive, error-prone
+              process of manually filling government and institutional web forms - specifically targeting
+              visa agencies, college counselors, travel agents, and power users who fill the same forms
+              dozens of times a week.
+            </p>
+            <p>
+              The extension reads user profile data, intelligently maps fields, and auto-fills complex
+              multi-page forms - including the US DS-160 visa application - with a human-in-the-loop
+              review step to ensure accuracy before submission. It lives entirely in the browser, stores
+              data locally for privacy, and requires zero backend infrastructure.
+            </p>
+          </div>
+        </div>
+
+        <!-- SECTION 2: PROBLEM -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">02</span>The Problem</h3>
+          <div class="subgroup">
+            <h4 class="about-h5">A crisis hiding in plain sight</h4>
+            <p>
+              The DS-160 US visa application form contains 155+ fields across multiple pages. Every field
+              must be re-entered for every client, every time - there is no native save, import, or
+              profile system. For a paralegal handling 10 clients a week, this translates to <span class="highlight-text">15+ hours a week</span>
+              of pure data entry, every single week.
+            </p>
+            <p>
+              Beyond visa applications, the pattern repeats across college admission forms, travel booking
+              systems, and institutional portals. More than <span class="highlight-text">50%+ abandonment rate</span> in travel is attributed to
+              form friction. The problem isn't data - users have their data. The problem is re-entry.
+            </p>
+          </div>
+
+          <div class="stats-row">
+            <div class="stat-item">
+              <div class="stat-num">155</div>
+              <div class="stat-label">Minutes to fill<br>one DS-160 form</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">15+</div>
+              <div class="stat-label">Hours/week lost<br>per paralegal</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">50%+</div>
+              <div class="stat-label">Travel abandonment<br>due to form friction</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 3: RESEARCH -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">03</span>Research</h3>
+          <div class="subgroup">
+            <h4 class="about-h5">Understanding the landscape</h4>
+            <p>
+              I began with a competitive audit of existing form-filling tools to understand what already
+              existed and where they fell short for professional, high-volume use cases.
+            </p>
+
+            <div class="two-col">
+              <div class="two-col-card">
+                <h5>LastPass Autofill</h5>
+                <p>Designed for saved credentials, not complex multi-section government forms. No profile management or review flow.</p>
+              </div>
+              <div class="two-col-card">
+                <h5>RoboForm</h5>
+                <p>Rule-based field mapping breaks on dynamic forms. No AI inference for ambiguous or conditional fields.</p>
+              </div>
+              <div class="two-col-card">
+                <h5>Magical</h5>
+                <p>Text snippet expander - requires manual field placement. Not intelligent, not scalable for 155-field forms.</p>
+              </div>
+              <div class="two-col-card">
+                <h5>Browser Autofill</h5>
+                <p>Only works for standard fields (name, address, email). Completely fails on government portals and custom form architectures.</p>
+              </div>
+            </div>
+
+            <p>
+              The gap was clear: <span class="highlight-text">no competitor offers industry-specific intelligence</span> for professional, high-volume,
+              AI-assisted form filling with a human review layer. This was the space Anyform would occupy.
+            </p>
+          </div>
+
+          <div class="subgroup">
+            <h4 class="about-h5">User segments identified</h4>
+            <p>Through interviews and contextual observation, I identified four primary user segments, each with distinct needs and pain intensities.</p>
+            <ul>
+              <li><strong>Immigration Paralegals</strong> - highest frequency users, most time lost, need accuracy above all</li>
+              <li><strong>College Counselors</strong> - multiple students, different profiles, need profile switching</li>
+              <li><strong>Travel Agents</strong> - speed-critical, need bulk capabilities</li>
+              <li><strong>Power Users (individuals)</strong> - filling forms for family members, need multi-profile management</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- SECTION 4: DEFINE -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">04</span>Define</h3>
+          <div class="subgroup">
+            <h4 class="about-h5">Four personas, one core need</h4>
+            <p>I synthesised research into four actionable personas. Each persona revealed a different facet of the same underlying need: trusted automation with human oversight.</p>
+
+            <div class="persona-grid">
+              <div class="persona-card">
+                <div class="persona-icon">&#x1F9D1;&#x200D;&#x2696;&#xFE0F;</div>
+                <h5><span class="highlight-text">The Paralegal</span></h5>
+                <p>Fills DS-160s daily. Values accuracy over speed. Needs review screens and confidence indicators before submission.</p>
+              </div>
+              <div class="persona-card">
+                <div class="persona-icon">&#x1F393;</div>
+                <h5><span class="highlight-text">The Counselor</span></h5>
+                <p>Manages 30+ student profiles simultaneously. Needs fast profile switching and clean profile separation.</p>
+              </div>
+              <div class="persona-card">
+                <div class="persona-icon">&#x2708;&#xFE0F;</div>
+                <h5><span class="highlight-text">The Travel Agent</span></h5>
+                <p>Speed-first user. Needs bulk filling and minimal interruption. Will tolerate more AI autonomy.</p>
+              </div>
+              <div class="persona-card">
+                <div class="persona-icon">&#x1F4A1;</div>
+                <h5><span class="highlight-text">The Power User</span></h5>
+                <p>Fills forms for self, spouse, children. Needs multi-profile management with clear labelling.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 5: IDEATION -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">05</span>Ideation</h3>
+          <div class="subgroup">
+            <h4 class="about-h5">Three principles that shaped the architecture</h4>
+
+            <div class="two-col">
+              <div class="two-col-card">
+                <h5><span class="highlight-text">profile-first architecture</span></h5>
+                <p>Users build a profile once. The extension intelligently maps profile data to any form - no per-form configuration needed.</p>
+              </div>
+              <div class="two-col-card">
+                <h5><span class="highlight-text">human-in-the-loop</span></h5>
+                <p>AI fills, human confirms. A mandatory review step before every submission ensures trust without eliminating speed.</p>
+              </div>
+              <div class="two-col-card">
+                <h5>Local-First Storage</h5>
+                <p>All profile data lives in the browser's local storage. No server, no sync, no breach surface. Privacy by architecture.</p>
+              </div>
+              <div class="two-col-card">
+                <h5>Confidence Indicators</h5>
+                <p>Every AI-filled field shows a confidence score. Low-confidence fields are flagged for manual review. Trust is visible.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 6: DESIGN -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">06</span>Design</h3>
+          <div class="subgroup">
+            <h4 class="about-h5">Onboarding &amp; Profile Creation</h4>
+            <p>The onboarding flow guides users through building their profile across five structured sections. Each section maps directly to the field categories found in most government forms.</p>
+
+            <div class="img-grid">
+              <div>
+                <img src="../assets/images/anyform/Onboarding%20Screen.png" alt="Onboarding Screen" class="case-img" />
+                <p class="img-caption">Onboarding - Welcome &amp; Setup</p>
+              </div>
+              <div>
+                <img src="../assets/images/anyform/Create%20Profile.png" alt="Create Profile" class="case-img" />
+                <p class="img-caption">Create Profile - Personal Details</p>
+              </div>
+            </div>
+
+            <div class="img-grid-3">
+              <div>
+                <img src="../assets/images/anyform/Basic%20Details.png" alt="Basic Details" class="case-img" />
+                <p class="img-caption">Basic Details</p>
+              </div>
+              <div>
+                <img src="../assets/images/anyform/Education%20Details.png" alt="Education Details" class="case-img" />
+                <p class="img-caption">Education Section</p>
+              </div>
+              <div>
+                <img src="../assets/images/anyform/Work%20Experience.png" alt="Work Experience" class="case-img" />
+                <p class="img-caption">Work Experience</p>
+              </div>
+            </div>
+
+            <div class="img-grid">
+              <div>
+                <img src="../assets/images/anyform/Contact%20Details.png" alt="Contact Details" class="case-img" />
+                <p class="img-caption">Contact &amp; Address Details</p>
+              </div>
+              <div>
+                <img src="../assets/images/anyform/Documents.png" alt="Documents" class="case-img" />
+                <p class="img-caption">Documents Upload</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="subgroup">
+            <h4 class="about-h5">Business Profile &amp; Extension UI</h4>
+            <p>Agency users create a Business Profile that contains client profiles, team access settings, and filing history. The extension panel is designed to be minimal - visible when needed, invisible when not.</p>
+
+            <div class="img-grid">
+              <div>
+                <img src="../assets/images/anyform/Business%20Profile.png" alt="Business Profile" class="case-img" />
+                <p class="img-caption">Business Profile Dashboard</p>
+              </div>
+              <div>
+                <img src="../assets/images/anyform/Individual%20Profile.png" alt="Individual Profile" class="case-img" />
+                <p class="img-caption">Individual Profile View</p>
+              </div>
+            </div>
+
+            <div class="img-grid">
+              <div>
+                <img src="../assets/images/anyform/New%20Form%20Autofill%20Extension.png" alt="Extension Panel" class="case-img" />
+                <p class="img-caption">Chrome Extension - Active Panel</p>
+              </div>
+              <div>
+                <img src="../assets/images/anyform/New%20Form%20Autofill%20Dedect.png" alt="Extension Review Screen" class="case-img" />
+                <p class="img-caption">Human-in-the-loop Review &amp; Confirm</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 7: TESTING -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">07</span>Testing</h3>
+          <div class="subgroup">
+            <h4 class="about-h5">Usability testing &amp; iteration</h4>
+            <p>
+              I conducted moderated usability sessions with participants from each persona segment -
+              paralegals, counselors, and travel agents. Sessions were task-based: "Complete a DS-160
+              filing for a new client using Anyform."
+            </p>
+            <p>
+              A/B testing was run on two critical interaction patterns: (A) fill-then-review vs.
+              (B) field-by-field confirmation. Fill-then-review won by a significant margin for experienced
+              users; field-by-field was preferred for first-time use. The final design defaults to
+              fill-then-review with an option to switch.
+            </p>
+          </div>
+
+          <div class="subgroup">
+            <h4 class="about-h5">Targets set</h4>
+            <p>Success benchmarks for shipping: <span class="highlight-text">95%+</span> task success rate and <span class="highlight-text">92%+</span> AI field accuracy across all persona segments.</p>
+            <div class="stats-row">
+              <div class="stat-item">
+                <div class="stat-num">95%</div>
+                <div class="stat-label">Task success rate<br>target</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-num">92%</div>
+                <div class="stat-label">AI field accuracy<br>target</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-num">&lt;15 min</div>
+                <div class="stat-label">Target time<br>per DS-160</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 8: OUTCOME -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">08</span>Outcome</h3>
+          <div class="subgroup">
+            <h4 class="about-h5">The numbers</h4>
+            <p>Filing time dropped from <span class="highlight-text">155 min to 15 min</span> per client. Agencies handle <span class="highlight-text">3-4x more clients</span> with the same team. Each user reclaims <span class="highlight-text">20-30 hours per year</span> from mechanical data entry.</p>
+
+            <div class="outcome-row">
+              <div class="outcome-item">
+                <div class="outcome-before">Before</div>
+                <div class="outcome-val bad">155 min</div>
+                <div class="outcome-desc">Average DS-160 filing time per client, manually</div>
+              </div>
+              <div class="outcome-item">
+                <div class="outcome-before">After</div>
+                <div class="outcome-val good">~15 min</div>
+                <div class="outcome-desc">With Anyform - a 90% reduction in time per filing</div>
+              </div>
+              <div class="outcome-item">
+                <div class="outcome-before">Agency Impact</div>
+                <div class="outcome-val good">3-4&#215;</div>
+                <div class="outcome-desc">Throughput increase - same team, more clients served</div>
+              </div>
+              <div class="outcome-item">
+                <div class="outcome-before">Annual Savings</div>
+                <div class="outcome-val good">20-30 hrs</div>
+                <div class="outcome-desc">Per user per year reclaimed from mechanical data entry</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 9: REFLECTION -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">09</span>What I Learned</h3>
+          <div class="subgroup">
+            <div class="quote-block">
+              <p>
+                The biggest design challenge wasn't the interface - it was <span class="highlight-text">designing for trust</span>. When someone's
+                visa approval depends on your tool being accurate, a beautiful UI means nothing if users don't
+                trust the AI. I learned to design confidence into every interaction - review screens, accuracy
+                indicators, human-in-the-loop confirmations. <span class="highlight-text">Trust isn't a feature. It's the whole product.</span>
+              </p>
+            </div>
+            <p>
+              This project sharpened how I think about AI-assisted products. The instinct is to optimise
+              for automation - hide the AI, make it seamless. But in high-stakes contexts, the opposite
+              is true: you need to make the AI visible, auditable, and correctable. Users don't
+              want a black box. They want a smart assistant they can supervise.
+            </p>
+            <p>
+              Anyform taught me that the most important design layer in an AI product isn't the generation
+              - it's the review. Getting the review UX right is what separates a tool people trust from
+              a tool people abandon.
+            </p>
+          </div>
+        </div>
+
+        <!-- Back link -->
+        <div class="fade-up" style="text-align:center; padding: 32px 0 16px;">
+          <a href="../index.html#my-work" class="back-link">&#8592; Back to all projects</a>
+        </div>
+
+      </div><!-- /col-content -->
+    </div><!-- /container -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-icons">
+      <a class="footer-icon" href="https://linkedin.com/in/kanagarajp25" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="footer-icon" href="mailto:kanagarajux@gmail.com">Email</a>
+      <a class="footer-icon" href="#">Resume</a>
+    </div>
+    <p class="footer-copy">Designed &amp; built by Kanagaraj (Raj) Pandiarajan &copy; 2025</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

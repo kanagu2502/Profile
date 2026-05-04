@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CareerJourney Case Study - Kanagaraj (Raj) Pandiarajan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #f7f6f2;
+      --ink:          #1a1a1a;
+      --primary:      #4a4a4a;
+      --secondary:    #6b6b6b;
+      --tertiary:     #a0a0a0;
+      --accent:       #C2622D;
+      --accent-light: #fdf0e8;
+      --about-color:  #C2622D;
+      --border:       #e5e3dc;
+      --white:        #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: #4a4a4a;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      margin-top: 17vh;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: transparent;
+      padding: 20px 40px;
+      min-height: 68px;
+    }
+
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+
+    .nav-logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      color: #1a1a1a;
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 400;
+      color: #6b6b6b;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: #1a1a1a; }
+
+    /* CONTAINER */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+    .col-content { max-width: 780px; margin: 0 auto; }
+
+    /* ARTICLE HEADER */
+    .article-header { text-align: center; padding-bottom: 8px; }
+
+    .article-header .back-link {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: #6b6b6b;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      margin-bottom: 28px;
+      transition: color 0.2s;
+    }
+
+    .article-header .back-link:hover { color: #1a1a1a; }
+
+    .article-header h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.4rem, 5vw, 3.5rem);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: #1a1a1a;
+      margin-bottom: 14px;
+    }
+
+    .article-subtitle {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #6b6b6b;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .article-meta {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: #a0a0a0;
+    }
+
+    .article-meta span strong { font-weight: 500; color: #6b6b6b; }
+
+    /* JUMBOTRON */
+    .project-jumbotron {
+      width: 100%;
+      border-radius: 16px;
+      margin: 48px 0;
+      overflow: hidden;
+      box-shadow: 0 12px 56px rgba(28,25,23,0.22), 0 2px 12px rgba(28,25,23,0.10);
+    }
+
+    .project-jumbotron img { width: 100%; height: auto; display: block; }
+
+    /* GROUP */
+    .group {
+      margin-bottom: 8px;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+
+    .group h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #1a1a1a;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .group h3 .section-num {
+      font-size: 11px;
+      font-weight: 600;
+      color: #C2622D;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 4px;
+      text-align: center;
+    }
+
+    /* SUBGROUP */
+    .subgroup { padding-bottom: 32px; }
+
+    .subgroup h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+      color: #1a1a1a;
+      margin-bottom: 14px;
+    }
+
+    .subgroup h5 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .subgroup p {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.8;
+      color: #4a4a4a;
+      margin-bottom: 20px;
+    }
+
+    .subgroup p:last-child { margin-bottom: 0; }
+
+    .subgroup ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    .subgroup ul li {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #4a4a4a;
+      line-height: 1.7;
+      padding: 8px 0 8px 22px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .subgroup ul li:first-child { border-top: 1px solid var(--border); }
+
+    .subgroup ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+
+    .subgroup ul li strong { font-weight: 500; color: #1a1a1a; }
+
+    /* LEFT-BORDER HEADING */
+    .about-h5 {
+      border-left: 5px solid #C2622D;
+      padding-left: 20px;
+      margin-left: -25px;
+      margin-bottom: 20px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #1a1a1a;
+      line-height: 1.4;
+    }
+
+    /* STAT ROW */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 32px 0;
+    }
+
+    .stat-item {
+      padding: 1.5rem;
+      background: #f7f6f2;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 2.5rem;
+      letter-spacing: -0.04em;
+      color: #C2622D;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      color: #6b6b6b;
+      line-height: 1.4;
+    }
+
+    /* TWO COLUMN */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 24px 0;
+    }
+
+    .two-col-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      background: #ffffff;
+    }
+
+    .two-col-card h5 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+
+    .two-col-card p {
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: #6b6b6b;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* VISION CARDS (3 col) */
+    .vision-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 28px 0;
+    }
+
+    .vision-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 20px;
+      text-align: center;
+    }
+
+    .vision-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .vision-card h5 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+    }
+
+    .vision-card p {
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: #6b6b6b;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* MODULE SUBSECTION */
+    .module-block {
+      margin-bottom: 44px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .module-block:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .module-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #ffffff;
+      background: #C2622D;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    .module-block h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+    }
+
+    .module-block p {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #4a4a4a;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    /* AI FEATURE SECTION */
+    .ai-section {
+      background: #fdf0e8;
+      border: 1px solid #f0d5c0;
+      border-radius: 16px;
+      padding: 36px;
+      margin: 24px 0;
+    }
+
+    .ai-section .ai-intro {
+      font-size: 0.92rem;
+      font-weight: 400;
+      color: #4a4a4a;
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .ai-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .ai-card {
+      background: #ffffff;
+      border: 1px solid #e5e3dc;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .ai-card-icon {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .ai-card h5 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: #C2622D;
+      margin-bottom: 8px;
+    }
+
+    .ai-card p {
+      font-size: 0.81rem;
+      font-weight: 400;
+      color: #6b6b6b;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* REFLECTION */
+    .reflection-block {
+      background: #f7f6f2;
+      border-left: 4px solid #C2622D;
+      padding: 2rem 2.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 3rem 0;
+    }
+
+    .reflection-block .ref-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #C2622D;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .reflection-block p {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.9;
+      color: #4a4a4a;
+      margin: 0;
+    }
+
+    /* FUTURE STEPS */
+    .future-list { list-style: none; padding: 0; margin: 24px 0; }
+
+    .future-list li {
+      background: #ffffff;
+      border: 1px solid #e5e3dc;
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .future-num {
+      color: #C2622D;
+      font-weight: 700;
+      font-size: 14px;
+      min-width: 24px;
+    }
+
+    .future-content strong {
+      display: block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: #1a1a1a;
+      margin-bottom: 3px;
+    }
+
+    .future-content span {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: #6b6b6b;
+      line-height: 1.6;
+    }
+
+    /* CASE IMAGES */
+    .case-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0 2px 20px rgba(28,25,23,0.09);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .case-img:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 36px rgba(28,25,23,0.14);
+    }
+
+    .img-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: 20px 0;
+    }
+
+    .img-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 20px 0;
+    }
+
+    .img-caption {
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: #a0a0a0;
+      margin-top: 7px;
+      font-style: italic;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 80px;
+      padding: 3rem 2rem;
+      border-top: 1px solid #e5e3dc;
+      text-align: center;
+    }
+
+    .footer-icons {
+      text-align: center;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .footer-icon {
+      display: inline-block;
+      color: #6b6b6b;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .footer-icon:hover { color: #1a1a1a; }
+
+    .footer-copy {
+      font-size: 12px;
+      font-weight: 400;
+      color: #a0a0a0;
+      text-align: center;
+    }
+
+    /* FADE UP */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      body { margin-top: 80px; }
+
+      nav {
+        background: var(--bg);
+        box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        padding: 16px 20px;
+      }
+
+      .container { padding: 0 20px; }
+      .col-content { max-width: 100%; }
+
+      .stats-row { grid-template-columns: 1fr; }
+
+      .two-col,
+      .vision-grid,
+      .ai-cards,
+      .screen-grid,
+      .img-grid,
+      .img-grid-3 { grid-template-columns: 1fr; }
+
+      .about-h5 { margin-left: -21px; }
+      .ai-section { padding: 24px 20px; }
+      .reflection-block { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="../index.html">Kanagaraj (Raj)</a>
+      <ul class="nav-links">
+        <li><a href="../index.html#my-work">Projects</a></li>
+        <li><a href="#">Resume</a></li>
+        <li><a href="../about-me.html">About Me</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main>
+    <div class="container">
+      <div class="col-content">
+
+        <!-- Header -->
+        <header class="article-header fade-up">
+          <a href="../index.html#my-work" class="back-link">&#8592; Back to Projects</a>
+          <h1>CareerJourney</h1>
+          <p class="article-subtitle">
+            <span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">0&#8594;1 Product Design</span><span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">Web App</span><span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">AI Features</span><span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">Career Tech</span><span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">Figma</span>
+          </p>
+          <div class="article-meta">
+            <span><strong>Role</strong> Lead UI/UX Designer - End to End (0&#8594;1)</span>
+            <span><strong>Duration</strong> [Duration]</span>
+            <span><strong>Platform</strong> Web Application</span>
+          </div>
+        </header>
+
+        <!-- One-liner -->
+        <div class="subgroup fade-up" style="text-align:center; padding:0 0 8px 0;">
+          <p style="font-size:1.05rem; line-height:1.75; color:#6b6b6b; font-style:italic;">
+            "A full-featured career development platform built from scratch - giving professionals the tools, connections, and community they need to navigate one of life's most complex journeys."
+          </p>
+        </div>
+
+        <!-- Jumbotron -->
+        <div class="project-jumbotron fade-up">
+          <img src="../assets/images/CJ/Dashboard.png" alt="CareerJourney Dashboard" />
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-row fade-up">
+          <div class="stat-item">
+            <div class="stat-num">6</div>
+            <div class="stat-label">Core modules designed<br>end-to-end</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">3</div>
+            <div class="stat-label">AI-powered career<br>tools integrated</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">0&#8594;1</div>
+            <div class="stat-label">Full product from<br>concept to high-fidelity</div>
+          </div>
+        </div>
+
+        <!-- SECTION 01: OVERVIEW -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">01</span>Overview</h3>
+          <div class="subgroup">
+            <div class="two-col">
+              <div class="two-col-card">
+                <h5>Project Type</h5>
+                <p>0&#8594;1 Web Application Design - desktop-first, invitation-only platform</p>
+              </div>
+              <div class="two-col-card">
+                <h5>Organisation</h5>
+                <p>Invest to Impact (ITOI) Network Foundation, USA. Non-profit. Invitation-only platform.</p>
+              </div>
+              <div class="two-col-card">
+                <h5>6 Core Modules</h5>
+                <p>Dashboard · Sessions · Messages · Connections · Groups · Career Growth</p>
+              </div>
+              <div class="two-col-card">
+                <h5>Platform</h5>
+                <p>Web application, desktop-first with responsive breakpoints</p>
+              </div>
+            </div>
+            <div class="about-h5" style="margin-top:8px;">My Contribution</div>
+            <p>Designed the complete platform end-to-end - all 6 modules, every screen, full design system, navigation architecture, and all user interactions from onboarding to AI interview preparation. Every component, pattern, and interaction from a blank canvas to a complete high-fidelity product.</p>
+          </div>
+        </div>
+
+        <!-- SECTION 02: PROBLEM -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">02</span>Problem Statement</h3>
+          <div class="subgroup">
+            <div class="about-h5">"Career growth is one of life's hardest journeys. Most people are doing it alone."</div>
+            <p>Professionals today face an overwhelming career landscape - unclear paths, limited access to mentors, no structured way to build meaningful connections, and zero personalised guidance. LinkedIn is too noisy. Career coaches are expensive. There's no single place that combines trusted networking, structured learning, AI career tools, and community - all designed specifically for professionals who need real support, not just job listings.</p>
+            <ul>
+              <li>No trusted space for professionals to connect based on shared career goals - not just job titles</li>
+              <li>Career resources are scattered across LinkedIn, YouTube, and expensive coaching platforms</li>
+              <li>Interview preparation is generic and not personalised to the job or industry</li>
+              <li>Resume and cover letter creation is time-consuming and inconsistent</li>
+              <li>Professionals have no structured way to host or join live learning sessions with peers</li>
+              <li>No single dashboard giving professionals a clear view of their career progress and activity</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- SECTION 03: PRODUCT VISION -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">03</span>Product Vision</h3>
+          <div class="subgroup">
+            <p>Three pillars that define what CareerJourney is built to deliver - and why each one matters.</p>
+            <div class="vision-grid">
+              <div class="vision-card">
+                <span class="vision-icon">&#x1F91D;</span>
+                <h5>Trusted Connections</h5>
+                <p>Build a meaningful professional network filtered by education, role, and expertise. Suggested connections, mutual connections, invite by email - real relationships, not just followers.</p>
+              </div>
+              <div class="vision-card">
+                <span class="vision-icon">&#x1F916;</span>
+                <h5>AI Career Tools</h5>
+                <p>AI Interview Prep personalised to job description and level. AI Resume Maker and AI Cover Letter Maker - create or upload, refined by AI for each application.</p>
+              </div>
+              <div class="vision-card">
+                <span class="vision-icon">&#x1F4C8;</span>
+                <h5>Structured Growth</h5>
+                <p>Track ongoing skills progress, join public or private sessions, participate in groups, monitor career growth percentage - all visible from one dashboard.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 04: THE 6 MODULES -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">04</span>The 6 Modules</h3>
+        </div>
+
+        <!-- Module 01 - Dashboard -->
+        <div class="module-block fade-up">
+          <span class="module-tag">Module 01</span>
+          <h4>Dashboard</h4>
+          <p>The command center of CareerJourney. At a glance, professionals see their Posts (1023), Sessions (102), Groups (56), Career Growth (36%), and Connections (56). A weekly activity chart tracks current vs previous performance. The calendar shows upcoming events. Smart Chat previews the latest message. Upcoming Sessions shows the next 5 scheduled sessions with participant counts and times. Top Skills shows the community's most in-demand skills - HTML (100+), CSS (300+), Angular (150+), React (100+), Photoshop (450+ users).</p>
+          <img src="../assets/images/CJ/Dashboard.png" alt="Dashboard" class="case-img" />
+        </div>
+
+        <!-- Module 02 - Career Growth -->
+        <div class="module-block fade-up">
+          <span class="module-tag">Module 02</span>
+          <h4>Career Growth</h4>
+          <p>The personal development hub. Ongoing Skills shows progress bars for HTML, Management, C++, Java, and React - all tracked at 60% progress. Upcoming Lessons lists scheduled courses. Notice Board shows platform announcements. Three AI-powered tools sit below: AI Interview Preparation (select interview type, level, language, duration, and job description - then Start Your Interview), AI Resume Maker (create from scratch or upload existing), and AI Cover Letter Maker (create or upload). Every professional tool needed in one section.</p>
+          <img src="../assets/images/CJ/Career%20Growth%20Section.png" alt="Career Growth" class="case-img" />
+        </div>
+
+        <!-- Module 03 - Sessions -->
+        <div class="module-block fade-up">
+          <span class="module-tag">Module 03</span>
+          <h4>Sessions</h4>
+          <p>Professionals can create and join live learning sessions - public or private. The sessions grid shows session name, description, participant avatars with count, date (11 March 2023), and time (11:00 AM, 1 Hr). Sessions are tagged Private or Public. The Create New Session panel on the right allows setting name, type (Private/Public toggle), date, time, duration, timezone, description, and inviting connections. Session Detail shows the organiser, schedule, session type badge (PUBLIC/PRIVATE), full description, and a people list with Host and Co-Host role badges.</p>
+          <div class="img-grid">
+            <img src="../assets/images/CJ/Sessions.png" alt="Sessions listing" class="case-img" />
+            <img src="../assets/images/CJ/View%20Sessions.png" alt="Session detail" class="case-img" />
+          </div>
+        </div>
+
+        <!-- Module 04 - Video Session -->
+        <div class="module-block fade-up">
+          <span class="module-tag">Module 04</span>
+          <h4>Video Session &amp; AI Interview</h4>
+          <p>A full video conferencing experience built into the platform. The main speaker is displayed large with their name label. A strip of participant thumbnails runs across the top showing all active participants with mic/camera status indicators. A live Messages panel on the right shows real-time chat with participant count (12 Participants). Controls at the bottom: Leave (red), Mute/Unmute, Camera toggle, and Raise Hand. The AI Interview Window uses the same layout but with an AI avatar (blue globe) as the interviewer, with a timer running at top (01:10:05) and interview Q&amp;A in the right chat panel.</p>
+          <div class="img-grid">
+            <img src="../assets/images/CJ/Video%20session.png" alt="Video Session" class="case-img" />
+            <img src="../assets/images/CJ/Interview%20Window.png" alt="AI Interview Window" class="case-img" />
+          </div>
+        </div>
+
+        <!-- Module 05 - Connections -->
+        <div class="module-block fade-up">
+          <span class="module-tag">Module 05</span>
+          <h4>Connections</h4>
+          <p>A 3-column grid of professional connections showing name, job title, education qualification, and sector. Each card has Message and Delete actions. Sortable by Recent Added. Search by name. Right sidebar shows Suggested Connections (searchable by Name, Qualification, or Education) and an Invite by Email field. Connection Detail page shows a full profile - photo, name, title, About section, education, and a Mutual Connections list showing shared professional network.</p>
+          <div class="img-grid">
+            <img src="../assets/images/CJ/Connection.png" alt="Connections grid" class="case-img" />
+            <img src="../assets/images/CJ/View%20Connection%20Detail.png" alt="Connection detail" class="case-img" />
+          </div>
+        </div>
+
+        <!-- Module 06 - Groups & Messages -->
+        <div class="module-block fade-up">
+          <span class="module-tag">Module 06</span>
+          <h4>Groups &amp; Messages</h4>
+          <p>Groups allow professionals to create and join topic-based communities. Each group card shows name, description, member avatars with count, and creator. Create New Group panel: name, photo upload, description, and invite connections with tag-style chips. Messages is a full-featured inbox - conversation list on the left with avatar, name, preview, and timestamp. Active conversation on the right with message bubbles, timestamps, and video/call action buttons in the header.</p>
+          <div class="img-grid">
+            <img src="../assets/images/CJ/Grops%20Listing.png" alt="Groups listing" class="case-img" />
+            <img src="../assets/images/CJ/Chat%20Box.png" alt="Messages chat" class="case-img" />
+          </div>
+        </div>
+
+        <!-- SECTION 05: AI FEATURES -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">05</span>AI Features Deep Dive</h3>
+          <div class="subgroup">
+            <div class="ai-section">
+              <div class="about-h5">"AI built into every career touchpoint"</div>
+              <p class="ai-intro">CareerJourney doesn't bolt AI on as an afterthought - it's woven into the three moments that matter most in any professional's journey: getting the job, writing for the job, and preparing for the interview.</p>
+              <div class="ai-cards">
+                <div class="ai-card">
+                  <span class="ai-card-icon">&#x1F399;&#xFE0F;</span>
+                  <h5>AI Interview Preparation</h5>
+                  <p>Select interview type, level, language, and duration. Paste the job description. The AI conducts a live video interview session with a timer, asking questions in real time. After the session, receive a detailed result page with Highlights and areas that Need to Improve, plus a downloadable interview report.</p>
+                </div>
+                <div class="ai-card">
+                  <span class="ai-card-icon">&#x1F4C4;</span>
+                  <h5>AI Resume Maker</h5>
+                  <p>Create a professional resume from scratch using AI, or upload your existing resume for AI to enhance and tailor to the role. Built directly into the Career Growth section - no third-party tool needed.</p>
+                </div>
+                <div class="ai-card">
+                  <span class="ai-card-icon">&#x2709;&#xFE0F;</span>
+                  <h5>AI Cover Letter Maker</h5>
+                  <p>Generate a tailored cover letter for any job application, or upload an existing one for AI refinement. Paired with Resume Maker so both documents are consistent and ready together.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 06: DESIGN DECISIONS -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">06</span>Design Decisions</h3>
+          <div class="subgroup">
+            <div class="about-h5">"Designing clarity for a complex platform"</div>
+            <ul>
+              <li><strong>Persistent top navigation with 6 clear modules</strong> - professionals always know where they are and where to go next (Jakob's Law + clear wayfinding)</li>
+              <li><strong>Dashboard as the daily home</strong> - one screen with everything a professional needs to start their day, no hunting required</li>
+              <li><strong>Right sidebar pattern used consistently</strong> across Sessions, Groups, and Connections for creation/action panels - reduces context switching</li>
+              <li><strong>Public/Private session badges</strong> - immediate visual distinction so users never accidentally join or create the wrong session type</li>
+              <li><strong>Participant avatars with count chips (e.g. "+10")</strong> - social proof and capacity at a glance across sessions and groups</li>
+              <li><strong>AI tools placed inside Career Growth, not as a separate module</strong> - they belong in the growth journey, not as isolated features</li>
+              <li><strong>Split-layout Messages</strong> - conversation list always visible, active chat takes the majority of space - familiar pattern from Slack/WhatsApp</li>
+              <li><strong>Profile structured in 3 columns</strong>: photo/name left, Personal Details center, Contact + Professional Details right - maximum scanability</li>
+              <li><strong>Plans section with circular progress indicators</strong> - visual progress motivates continued engagement</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- SECTION 07: SCREENS SHOWCASE -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">07</span>Screens Showcase</h3>
+          <div class="subgroup">
+            <p>All 13 primary screens - from the dashboard to AI interview results.</p>
+            <div class="img-grid">
+              <img src="../assets/images/CJ/Dashboard.png" alt="Dashboard" class="case-img" />
+              <img src="../assets/images/CJ/Career%20Growth%20Section.png" alt="Career Growth" class="case-img" />
+              <img src="../assets/images/CJ/Sessions.png" alt="Sessions" class="case-img" />
+              <img src="../assets/images/CJ/View%20Sessions.png" alt="Session Detail" class="case-img" />
+              <img src="../assets/images/CJ/Video%20session.png" alt="Video Session" class="case-img" />
+              <img src="../assets/images/CJ/Interview%20Window.png" alt="AI Interview" class="case-img" />
+              <img src="../assets/images/CJ/Interview%20Result.png" alt="AI Interview Result" class="case-img" />
+              <img src="../assets/images/CJ/Connection.png" alt="Connections" class="case-img" />
+              <img src="../assets/images/CJ/View%20Connection%20Detail.png" alt="Connection Detail" class="case-img" />
+              <img src="../assets/images/CJ/Grops%20Listing.png" alt="Groups" class="case-img" />
+              <img src="../assets/images/CJ/Chat%20Box.png" alt="Messages" class="case-img" />
+              <img src="../assets/images/CJ/View%20Profile.png" alt="Profile" class="case-img" />
+              <img src="../assets/images/CJ/Plans.png" alt="Plans" class="case-img" />
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 08: OUTCOME -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">08</span>Outcome</h3>
+          <div class="subgroup">
+            <div class="about-h5">"A platform that puts the professional first"</div>
+
+            <div class="stats-row">
+              <div class="stat-item">
+                <div class="stat-num">6</div>
+                <div class="stat-label">Complete modules<br>designed end-to-end</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-num">3</div>
+                <div class="stat-label">AI-powered career<br>tools integrated</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-num">0&#8594;1</div>
+                <div class="stat-label">Full product from<br>concept to high-fidelity</div>
+              </div>
+            </div>
+
+            <h5 style="margin-bottom:12px;">Impact</h5>
+            <ul>
+              <li>Professionals have one trusted home for networking, learning, and career tools - no more switching between 5 different platforms</li>
+              <li>AI Interview Preparation gives personalised practice with real feedback - Highlights and areas to improve downloadable after every session</li>
+              <li>Sessions module enables structured peer learning - public and private, with host/co-host roles and participant management</li>
+              <li>Connections go beyond following - education, role, and mutual connections visible at a glance for meaningful professional relationships</li>
+              <li>Career Growth module tracks skill progress, upcoming lessons, and AI tools in one section - everything needed to grow, in one place</li>
+              <li>Invitation-only model creates a trusted, high-quality professional community from day one</li>
+            </ul>
+
+            <div class="reflection-block">
+              <span class="ref-label">What I Learned</span>
+              <p>CareerJourney taught me how to design coherence across a large, multi-module platform. With 6 major sections and dozens of screens, the biggest challenge wasn't designing individual screens - it was making sure every module felt like part of the same product. I learned to build and enforce a design system early, use consistent layout patterns (like the right sidebar for creation actions), and always ask: does this interaction feel familiar, or am I making the user learn something new? Consistency is not a constraint - it is the product experience.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 09: FUTURE STEPS -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">09</span>Future Steps</h3>
+          <div class="subgroup">
+            <ol class="future-list">
+              <li>
+                <span class="future-num">01</span>
+                <div class="future-content">
+                  <strong>Mobile app</strong>
+                  <span>The platform is desktop-first; a mobile companion app for notifications, quick messages, and session joining would significantly increase daily engagement.</span>
+                </div>
+              </li>
+              <li>
+                <span class="future-num">02</span>
+                <div class="future-content">
+                  <strong>Mentor matching</strong>
+                  <span>An algorithm that connects junior professionals with senior mentors based on career goals, industry, and skills.</span>
+                </div>
+              </li>
+              <li>
+                <span class="future-num">03</span>
+                <div class="future-content">
+                  <strong>Job board integration</strong>
+                  <span>Surfacing relevant job opportunities inside the platform based on skills, connections, and career growth data.</span>
+                </div>
+              </li>
+              <li>
+                <span class="future-num">04</span>
+                <div class="future-content">
+                  <strong>Public profiles</strong>
+                  <span>Allowing members to share a public-facing career profile link outside the invitation-only platform.</span>
+                </div>
+              </li>
+              <li>
+                <span class="future-num">05</span>
+                <div class="future-content">
+                  <strong>Analytics for session hosts</strong>
+                  <span>Attendance rates, engagement scores, and participant feedback to help hosts improve their sessions over time.</span>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+      </div><!-- /col-content -->
+    </div><!-- /container -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-icons">
+      <a class="footer-icon" href="https://linkedin.com/in/kanagarajp25" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="footer-icon" href="mailto:kanagarajux@gmail.com">Email</a>
+      <a class="footer-icon" href="#">Resume</a>
+    </div>
+    <p class="footer-copy">Designed &amp; built by Kanagaraj (Raj) Pandiarajan &copy; 2025</p>
+  </footer>
+
+  <!-- SCROLL ANIMATIONS -->
+  <script>
+    const fades = document.querySelectorAll('.fade-up');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    fades.forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>

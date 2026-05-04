@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TeleDoctor Case Study - Kanagaraj (Raj) Pandiarajan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #f7f6f2;
+      --ink:          #1a1a1a;
+      --primary:      #4a4a4a;
+      --secondary:    #6b6b6b;
+      --tertiary:     #a0a0a0;
+      --accent:       #C2622D;
+      --accent-light: #fdf0e8;
+      --about-color:  #C2622D;
+      --border:       #e5e3dc;
+      --white:        #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: #4a4a4a;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      margin-top: 17vh;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: transparent;
+      padding: 20px 40px;
+      min-height: 68px;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      color: #1a1a1a;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 400;
+      color: #6b6b6b;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: #1a1a1a; }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .col-content {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* ARTICLE HEADER */
+    .article-header {
+      text-align: center;
+      padding-bottom: 8px;
+    }
+
+    .article-header .back-link {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: #6b6b6b;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      margin-bottom: 28px;
+      transition: color 0.2s;
+    }
+
+    .article-header .back-link:hover { color: #1a1a1a; }
+
+    .article-header h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.4rem, 5vw, 3.5rem);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: #1a1a1a;
+      margin-bottom: 14px;
+    }
+
+    .article-header .article-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: #6b6b6b;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .article-meta {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: #a0a0a0;
+    }
+
+    .article-meta span strong {
+      font-weight: 500;
+      color: #6b6b6b;
+    }
+
+    /* Live badge in header */
+    .header-live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 500;
+      color: #16a34a;
+      margin-bottom: 20px;
+    }
+
+    .header-live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #22c55e;
+      animation: pulse-green 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse-green {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.55; transform: scale(1.3); }
+    }
+
+    /* JUMBOTRON */
+    .project-jumbotron {
+      width: 100%;
+      border-radius: 16px;
+      margin: 48px 0;
+      overflow: hidden;
+      box-shadow: 0 12px 56px rgba(28, 25, 23, 0.22), 0 2px 12px rgba(28, 25, 23, 0.10);
+    }
+
+    .project-jumbotron img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* GROUP (section) */
+    .group {
+      margin-bottom: 8px;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+
+    .group h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #1a1a1a;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .group h3 .section-num {
+      font-size: 11px;
+      font-weight: 600;
+      color: #C2622D;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 4px;
+      text-align: center;
+    }
+
+    /* SUBGROUP */
+    .subgroup {
+      padding-bottom: 32px;
+    }
+
+    .subgroup h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+      color: #1a1a1a;
+      margin-bottom: 14px;
+    }
+
+    .subgroup h5 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .subgroup p {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.8;
+      color: #4a4a4a;
+      margin-bottom: 20px;
+    }
+
+    .subgroup p:last-child { margin-bottom: 0; }
+
+    .subgroup ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    .subgroup ul li {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #4a4a4a;
+      line-height: 1.7;
+      padding: 8px 0 8px 22px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .subgroup ul li:first-child { border-top: 1px solid var(--border); }
+
+    .subgroup ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+
+    .subgroup ul li strong {
+      font-weight: 500;
+      color: #1a1a1a;
+    }
+
+    /* LEFT-BORDER HEADING */
+    .about-h5 {
+      border-left: 5px solid #C2622D;
+      padding-left: 20px;
+      margin-left: -25px;
+      margin-bottom: 20px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #1a1a1a;
+      line-height: 1.4;
+    }
+
+    /* STAT ROW */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 32px 0;
+    }
+
+    .stat-item {
+      padding: 1.5rem;
+      background: #f7f6f2;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 2.5rem;
+      letter-spacing: -0.04em;
+      color: #C2622D;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      color: #6b6b6b;
+      line-height: 1.4;
+    }
+
+    /* TWO COLUMN */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 24px 0;
+    }
+
+    .two-col-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .two-col-card h5 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .two-col-card p {
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: #6b6b6b;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* CASE STUDY IMAGES */
+    .case-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0 2px 20px rgba(28, 25, 23, 0.09);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .case-img:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 36px rgba(28, 25, 23, 0.14);
+    }
+
+    .img-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: 24px 0;
+    }
+
+    .img-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 24px 0;
+    }
+
+    .img-grid-full {
+      margin: 20px 0;
+    }
+
+    .img-caption {
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: #a0a0a0;
+      margin-top: 7px;
+      font-style: italic;
+    }
+
+    /* PERSONA CARDS */
+    .persona-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .persona-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      transition: border-color 0.2s;
+    }
+
+    .persona-card:hover { border-color: #C2622D; }
+
+    .persona-card .persona-icon {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    .persona-card .persona-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #a0a0a0;
+      margin-bottom: 4px;
+    }
+
+    .persona-card h5 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+    }
+
+    .persona-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: #6b6b6b;
+      line-height: 1.6;
+      margin: 0 0 10px 0;
+    }
+
+    .persona-card .persona-needs {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: #C2622D;
+      font-style: italic;
+    }
+
+    /* QUOTE BLOCK */
+    .quote-block {
+      background: #f7f6f2;
+      border-left: 4px solid #C2622D;
+      padding: 2rem 2.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 3rem 0;
+    }
+
+    .quote-block p {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.9;
+      color: #4a4a4a;
+      margin: 0;
+    }
+
+    /* TFC INNOVATION CARD */
+    .tfc-card {
+      background: #fdf0e8;
+      border: 1.5px solid #f0d5c0;
+      border-radius: 14px;
+      padding: 32px 36px;
+      margin: 24px 0;
+    }
+
+    .tfc-card h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      color: #1a1a1a;
+      margin-bottom: 14px;
+      line-height: 1.35;
+    }
+
+    .tfc-card p {
+      font-size: 0.92rem;
+      font-weight: 400;
+      color: #4a4a4a;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .tfc-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .tfc-card ul li {
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: #4a4a4a;
+      line-height: 1.7;
+      padding: 6px 0 6px 20px;
+      position: relative;
+      border-bottom: 1px solid #f0d5c0;
+    }
+
+    .tfc-card ul li:first-child { border-top: 1px solid #f0d5c0; }
+
+    .tfc-card ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #16a34a;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    /* DESIGN SUBSECTION */
+    .design-subsection {
+      margin-bottom: 52px;
+    }
+
+    .design-subsection-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .design-subsection-label .user-tag {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #ffffff;
+      background: #C2622D;
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+
+    .design-subsection-label h5 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #1a1a1a;
+      margin: 0;
+    }
+
+    /* OUTCOME */
+    .outcome-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 32px 0;
+    }
+
+    .outcome-stat {
+      padding: 1.5rem;
+      background: #f7f6f2;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .outcome-stat .num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 2.5rem;
+      letter-spacing: -0.04em;
+      color: #C2622D;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .outcome-stat .lbl {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      color: #6b6b6b;
+      line-height: 1.4;
+    }
+
+    /* REFLECTION BLOCK */
+    .reflection-block {
+      background: #f7f6f2;
+      border-left: 4px solid #C2622D;
+      padding: 2rem 2.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 3rem 0;
+    }
+
+    .reflection-block .ref-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #C2622D;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .reflection-block p {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.9;
+      color: #4a4a4a;
+      margin: 0;
+    }
+
+    /* FUTURE STEPS */
+    .future-list {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0;
+    }
+
+    .future-list li {
+      background: #ffffff;
+      border: 1px solid #e5e3dc;
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .future-num {
+      color: #C2622D;
+      font-weight: 700;
+      font-size: 14px;
+      min-width: 24px;
+    }
+
+    .future-content strong {
+      display: block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: #1a1a1a;
+      margin-bottom: 3px;
+    }
+
+    .future-content span {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: #6b6b6b;
+      line-height: 1.6;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 80px;
+      padding: 3rem 2rem;
+      border-top: 1px solid #e5e3dc;
+      text-align: center;
+    }
+
+    .footer-icons {
+      text-align: center;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .footer-icon {
+      display: inline-block;
+      color: #6b6b6b;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .footer-icon:hover { color: #1a1a1a; }
+
+    .footer-copy {
+      font-size: 12px;
+      font-weight: 400;
+      color: #a0a0a0;
+      text-align: center;
+    }
+
+    /* FADE UP */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      body { margin-top: 80px; }
+
+      nav {
+        background: var(--bg);
+        box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        padding: 16px 20px;
+        position: fixed;
+      }
+
+      .container { padding: 0 20px; }
+      .col-content { max-width: 100%; }
+
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+
+      .two-col { grid-template-columns: 1fr; }
+      .persona-grid { grid-template-columns: 1fr; }
+      .img-grid,
+      .img-grid-3 { grid-template-columns: 1fr; }
+      .outcome-stats { grid-template-columns: 1fr; }
+      .tfc-card { padding: 24px 20px; }
+      .reflection-block { padding: 24px 20px; }
+      .about-h5 { margin-left: -21px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="../index.html">Kanagaraj (Raj)</a>
+      <ul class="nav-links">
+        <li><a href="../index.html#my-work">Projects</a></li>
+        <li><a href="#">Resume</a></li>
+        <li><a href="../about-me.html">About Me</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main>
+    <div class="container">
+      <div class="col-content">
+
+        <!-- Article Header -->
+        <header class="article-header fade-up">
+          <a href="../index.html#my-work" class="back-link">&#8592; Back to Projects</a>
+          <div class="header-live-badge">
+            <span class="header-live-dot"></span>Live on iOS &amp; Android
+          </div>
+          <h1>TeleDoctor</h1>
+          <p class="article-subtitle">
+            <span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">0&#8594;1 Product Design</span><span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">Healthcare UX</span><span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">Web &amp; Mobile</span><span style="background:#fdf0e8;color:#C2622D;font-size:11px;padding:3px 10px;border-radius:100px;margin-right:6px;margin-bottom:4px;display:inline-block;font-weight:500">Figma</span>
+          </p>
+          <div class="article-meta">
+            <span><strong>Role</strong> Lead UI/UX Designer - End to End (0&#8594;1)</span>
+            <span><strong>Status</strong> Live on iOS &amp; Android</span>
+          </div>
+        </header>
+
+        <!-- One-liner -->
+        <div class="subgroup fade-up" style="text-align:center; padding: 0 0 8px 0;">
+          <p style="font-size:1.05rem; line-height:1.75; color:#6b6b6b; font-style:italic;">
+            "A telehealth platform designed from scratch - built for patients who don't own smartphones, doctors who want to extend their reach, and communities that need healthcare at their doorstep."
+          </p>
+        </div>
+
+        <!-- Jumbotron -->
+        <div class="project-jumbotron fade-up">
+          <img src="../assets/images/teledoctor/Patient/Consult%20Doctor-Quick%20Connect.png" alt="TeleDoctor - product overview" />
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-row fade-up">
+          <div class="stat-item">
+            <div class="stat-num">4</div>
+            <div class="stat-label">User types<br>designed end-to-end</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">0&#8594;1</div>
+            <div class="stat-label">Full product from<br>concept to live app</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">Live</div>
+            <div class="stat-label">iOS App Store &amp;<br>Google Play</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">Rural</div>
+            <div class="stat-label">India - first<br>served population</div>
+          </div>
+        </div>
+
+        <!-- SECTION 01: OVERVIEW -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">01</span>Overview</h3>
+
+          <div class="subgroup">
+            <div class="two-col">
+              <div class="two-col-card">
+                <h5>Project Type</h5>
+                <p>0&#8594;1 Web &amp; Mobile App Design</p>
+              </div>
+              <div class="two-col-card">
+                <h5>Organisation</h5>
+                <p>TeleDoctor · INTO IMPACT NETWORK FOUNDATION · Nagercoil, Tamil Nadu. Founded 07 October 2023.</p>
+              </div>
+              <div class="two-col-card">
+                <h5>Platforms</h5>
+                <p>iOS App · Android App · Website (teledoctor.life)</p>
+              </div>
+              <div class="two-col-card">
+                <h5>User Types</h5>
+                <p>Admin · Doctor · Patient · Tele Facilitation Center (TFC)</p>
+              </div>
+            </div>
+
+            <div class="about-h5" style="margin-top:8px;">My Contribution</div>
+            <p>Designed the complete product end-to-end - all 4 user flows, onboarding, consultation experience, TFC interface, admin dashboard, and the marketing website. Every screen, every interaction, every decision from a blank canvas to a live product used by real patients in rural India.</p>
+          </div>
+        </div>
+
+        <!-- SECTION 02: PROBLEM -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">02</span>Problem</h3>
+
+          <div class="subgroup">
+            <div class="about-h5">"Healthcare was hours away. For millions, that was too far."</div>
+            <p>People in rural India face a healthcare access crisis that goes beyond affordability. The nearest doctor may be hours away. Patients are often elderly or illiterate. Many don't own smartphones. When you're sick, these aren't inconveniences - they're barriers between you and survival.</p>
+
+            <ul>
+              <li><strong>Geography</strong> - Rural patients travel 2-4 hours to reach qualified doctors, often delaying care until conditions worsen</li>
+              <li><strong>Digital illiteracy</strong> - A large portion of the target population cannot use smartphones independently</li>
+              <li><strong>No smartphone ownership</strong> - Many rural patients, especially elderly, don't own devices capable of video consultation</li>
+              <li><strong>Affordability</strong> - High travel cost + consultation fees make regular healthcare inaccessible for low-income families</li>
+              <li><strong>No continuity of care</strong> - Without records or follow-ups, patients repeat consultations and lose prescription history</li>
+              <li><strong>Doctor shortage</strong> - Qualified doctors are concentrated in cities, leaving rural areas severely underserved</li>
+            </ul>
+
+            <div class="quote-block">
+              <p>"We come across patients who desperately wish to consult a Doctor who will be able to treat them at an affordable cost, from their home. TeleDoctor is meeting this felt need."</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 03: TFC INNOVATION -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">03</span>The TFC Innovation</h3>
+
+          <div class="subgroup">
+            <p>The biggest UX challenge wasn't designing a good app - it was designing for users who couldn't use the app at all.</p>
+
+            <div class="tfc-card">
+              <h4>"The breakthrough: bring technology to trust, not the other way around."</h4>
+              <p>Standard telehealth solutions assume smartphone ownership and digital literacy. Our users had neither. The insight: place technology inside a trusted community location instead of expecting users to bring technology to themselves.</p>
+
+              <ul>
+                <li>Tele Facilitation Centers are set up in churches, thalivars' (community elder) houses, and trusted community spaces in rural areas</li>
+                <li>Each TFC is equipped with devices and basic medical equipment for virtual consultations</li>
+                <li>A trained Care Worker / Health Worker is present to assist patients who cannot use technology themselves</li>
+                <li>TFC workers handle device operation, help patients describe symptoms, and facilitate the video consultation</li>
+                <li>All consultation records sync back to the patient's TeleDoctor profile automatically</li>
+                <li>TFCs assist with lab requisitions, prescription collection, and document uploads</li>
+              </ul>
+            </div>
+
+            <!-- TFC images -->
+            <div class="img-grid-3">
+              <div>
+                <img class="case-img" src="../assets/images/teledoctor/TFC/Consultations.png" alt="TFC Consultations" />
+                <p class="img-caption">TFC Consultations view</p>
+              </div>
+              <div>
+                <img class="case-img" src="../assets/images/teledoctor/TFC/TFC-Profile.png" alt="TFC Profile" />
+                <p class="img-caption">TFC Profile</p>
+              </div>
+              <div>
+                <img class="case-img" src="../assets/images/teledoctor/TFC/Consultation%20Profile.png" alt="TFC Consultation Profile" />
+                <p class="img-caption">Consultation Profile</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 04: RESEARCH -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">04</span>Research</h3>
+
+          <div class="subgroup">
+            <div class="about-h5">"Understanding the problem before designing the solution"</div>
+
+            <h5>Research Methods</h5>
+            <ul>
+              <li><strong>Contextual research</strong> - personal experience accessing rural healthcare (founders' own struggle)</li>
+              <li><strong>Field observation</strong> - understanding how rural patients currently navigate healthcare access</li>
+              <li><strong>Community interviews</strong> - understanding the role of churches and community leaders as trusted spaces</li>
+              <li><strong>Competitive analysis</strong> - existing telehealth apps (Practo, mFine, DocsApp) and why they fail rural users</li>
+              <li><strong>COVID-19 relief learnings</strong> - ITOI's prior experience mobilising tele-consultations in remote areas</li>
+            </ul>
+
+            <h5 style="margin-top:24px;">Key Findings</h5>
+            <ul>
+              <li>Existing telehealth apps are designed for urban, smartphone-literate users - completely inaccessible for rural elderly</li>
+              <li>Rural patients trust community figures (church leaders, thalivars) more than institutions - TFC location is critical to adoption</li>
+              <li>Doctors want flexible scheduling and ability to expand reach without relocating</li>
+              <li>Patients need e-prescriptions and lab requisitions sent digitally to avoid travelling back for paperwork</li>
+              <li>Multi-specialty access is a major gap - rural areas have GPs but no specialists</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- SECTION 05: PERSONAS -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">05</span>4 User Personas</h3>
+
+          <div class="subgroup">
+            <p>Four completely distinct users. Each with different literacy levels, devices, motivations, and needs. Each requiring their own purpose-built experience.</p>
+
+            <div class="persona-grid">
+              <div class="persona-card">
+                <div class="persona-icon">&#x1F9D1;&#x200D;&#x1F33E;</div>
+                <div class="persona-label">Persona 01</div>
+                <h5>The Patient</h5>
+                <p>Rural resident, often elderly or illiterate. May not own a smartphone. Needs to consult a doctor without travelling hours. Primary beneficiary of TFC access.</p>
+                <p class="persona-needs">Needs: Simple guided consultation, prescription in hand, follow-up reminders.</p>
+              </div>
+              <div class="persona-card">
+                <div class="persona-icon">&#x1FA7A;</div>
+                <div class="persona-label">Persona 02</div>
+                <h5>The Doctor</h5>
+                <p>Qualified physician wanting to extend care beyond their clinic. Values flexible scheduling, clear patient history, ability to issue e-prescriptions.</p>
+                <p class="persona-needs">Needs: Reliable video call, patient records at a glance, digital prescription tool.</p>
+              </div>
+              <div class="persona-card">
+                <div class="persona-icon">&#x1F3D8;&#xFE0F;</div>
+                <div class="persona-label">Persona 03</div>
+                <h5>The TFC Operator</h5>
+                <p>Community Care Worker at a church or community elder's house. Acts as the bridge between illiterate patients and the platform.</p>
+                <p class="persona-needs">Needs: Simple interface, ability to register patients, assist consultations, upload documents.</p>
+              </div>
+              <div class="persona-card">
+                <div class="persona-icon">&#x2699;&#xFE0F;</div>
+                <div class="persona-label">Persona 04</div>
+                <h5>The Admin</h5>
+                <p>Platform administrator managing doctors, TFCs, patients, and operations. Needs full oversight dashboard and analytics.</p>
+                <p class="persona-needs">Needs: Doctor verification, TFC registration approval, consultation logs, analytics.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 06: IDEATION -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">06</span>Ideation</h3>
+
+          <div class="subgroup">
+            <div class="about-h5">"Designing 4 experiences, not one."</div>
+
+            <ul>
+              <li><strong>4 separate UX flows</strong> - each user type gets a purpose-built interface, not a one-size-fits-all app</li>
+              <li><strong>TFC as a first-class user type</strong> - treating the facilitation center as a primary user, not an afterthought, was the central design innovation</li>
+              <li><strong>Mobile-first for patients &amp; doctors</strong> - iOS &amp; Android apps; web-based for TFC and Admin</li>
+              <li><strong>3-step simplicity for patients</strong> - Sign In &rarr; Find Doctor &rarr; Schedule Consultation. No more than 3 taps to start</li>
+              <li><strong>E-prescriptions &amp; lab requisitions</strong> - digital delivery removes the need to travel back for paperwork</li>
+              <li><strong>Community-trust placement</strong> - TFCs in churches and thalivars' homes, not government buildings, to maximise adoption</li>
+              <li><strong>General + Specialist split</strong> - patients choose between GP and specialist based on need</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- SECTION 07: DESIGN -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">07</span>Design</h3>
+
+          <div class="subgroup">
+
+            <!-- Patient Flow -->
+            <div class="design-subsection">
+              <div class="design-subsection-label">
+                <span class="user-tag">Patient Flow</span>
+                <h5>Onboarding, Consultation &amp; Health Records</h5>
+              </div>
+
+              <div class="img-grid">
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/Patient/Dashboard.png" alt="Patient Dashboard" />
+                  <p class="img-caption">Patient Dashboard</p>
+                </div>
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/Patient/Consult%20Doctor-Page%20one.png" alt="Find a Doctor" />
+                  <p class="img-caption">Find a Doctor</p>
+                </div>
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/Patient/Consult%20Doctor-Quick%20Connect.png" alt="Quick Connect" />
+                  <p class="img-caption">Video Consultation</p>
+                </div>
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/Patient/Consult%20Doctor-Quick%20Connect-1.png" alt="Consultation view" />
+                  <p class="img-caption">Prescription View</p>
+                </div>
+              </div>
+
+              <div class="img-grid-3" style="margin-top:0;">
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/Patient/Consultation%20List.png" alt="Consultation List" />
+                  <p class="img-caption">Consultation History</p>
+                </div>
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/Patient/Health%20records.png" alt="Health Records" />
+                  <p class="img-caption">Health Records</p>
+                </div>
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/Patient/Lab%20test.png" alt="Lab Test" />
+                  <p class="img-caption">Lab Requisition</p>
+                </div>
+              </div>
+
+              <div class="img-grid">
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/Patient/Profile.png" alt="Patient Profile" />
+                  <p class="img-caption">Patient Profile</p>
+                </div>
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/Patient/Payment%20list.png" alt="Payment History" />
+                  <p class="img-caption">Payment History</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doctor Flow -->
+            <div class="design-subsection">
+              <div class="design-subsection-label">
+                <span class="user-tag" style="background:#0d9488;">Doctor Flow</span>
+                <h5>Dashboard, Patient Records &amp; Prescriptions</h5>
+              </div>
+
+              <div class="img-grid-3">
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/Doctor/Dashboard.png" alt="Doctor Dashboard" />
+                  <p class="img-caption">Doctor Dashboard</p>
+                </div>
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/Doctor/Doctor-Profile.png" alt="Doctor Profile" />
+                  <p class="img-caption">Doctor Profile</p>
+                </div>
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/Doctor/Consultation%20Profile.png" alt="Consultation Profile" />
+                  <p class="img-caption">Issue Prescription</p>
+                </div>
+              </div>
+
+              <div class="img-grid-3" style="margin-top:0;">
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/Doctor/Recent%20patients.png" alt="Recent Patients" />
+                  <p class="img-caption">Recent Patients</p>
+                </div>
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/Doctor/Earnings.png" alt="Doctor Earnings" />
+                  <p class="img-caption">Earnings</p>
+                </div>
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/Doctor/Payment%20list.png" alt="Payment List" />
+                  <p class="img-caption">Payment List</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- TFC Flow -->
+            <div class="design-subsection">
+              <div class="design-subsection-label">
+                <span class="user-tag" style="background:#7c3aed;">TFC Flow</span>
+                <h5>Register Patients &amp; Assist Consultations</h5>
+              </div>
+
+              <div class="img-grid">
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/TFC/Consultations.png" alt="TFC Dashboard" />
+                  <p class="img-caption">TFC Dashboard</p>
+                </div>
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/TFC/TFC-Profile.png" alt="TFC Profile" />
+                  <p class="img-caption">Register Patient</p>
+                </div>
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/TFC/Consultation%20Profile.png" alt="Assist Consultation" />
+                  <p class="img-caption">Assist Consultation</p>
+                </div>
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/TFC/Payment%20list.png" alt="TFC Payments" />
+                  <p class="img-caption">Payment Records</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Admin Flow -->
+            <div class="design-subsection">
+              <div class="design-subsection-label">
+                <span class="user-tag" style="background:#dc2626;">Admin Flow</span>
+                <h5>Doctor Verification, TFC Management &amp; Analytics</h5>
+              </div>
+
+              <div class="img-grid">
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/Admin/Dashboard-%20patient%20Q.png" alt="Admin Dashboard" />
+                  <p class="img-caption">Admin Dashboard</p>
+                </div>
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/Admin/Doctors%20-%20New%20Requests.png" alt="Doctor Verification" />
+                  <p class="img-caption">Doctor Verification</p>
+                </div>
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/Admin/Doctors%20-%20New%20Doctors.png" alt="New Doctors" />
+                  <p class="img-caption">New Doctors</p>
+                </div>
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/Admin/Doctors%20-Patient.png" alt="Doctors &amp; Patients" />
+                  <p class="img-caption">Doctors &amp; Patients</p>
+                </div>
+              </div>
+
+              <div class="img-grid-3" style="margin-top:0;">
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/Admin/TFC%20List.png" alt="TFC List" />
+                  <p class="img-caption">TFC List</p>
+                </div>
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/Admin/TFC%20Individual.png" alt="TFC Individual" />
+                  <p class="img-caption">TFC Detail</p>
+                </div>
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/Admin/Master%20Data-%20lab%20test%20master.png" alt="Lab Test Master" />
+                  <p class="img-caption">Lab Test Master Data</p>
+                </div>
+              </div>
+
+              <div class="img-grid">
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/Admin/Create%20TFC.png" alt="Create TFC" />
+                  <p class="img-caption">Create TFC</p>
+                </div>
+                <div>
+                  <img class="case-img" src="../assets/images/teledoctor/Admin/Payment-%20Refund.png" alt="Payment &amp; Refund" />
+                  <p class="img-caption">Payment &amp; Refund</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SECTION 08: TESTING -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">08</span>Testing</h3>
+
+          <div class="subgroup">
+            <div class="about-h5">"Testing with real users in the field"</div>
+
+            <ul>
+              <li><strong>Usability testing with rural patients</strong> - could they navigate the patient flow independently without assistance?</li>
+              <li><strong>TFC operator testing</strong> - could a Care Worker register and assist a patient within 5 minutes?</li>
+              <li><strong>Doctor flow testing</strong> - prescription and lab requisition speed, accuracy, and clarity</li>
+              <li><strong>Accessibility testing</strong> - font sizes, contrast ratios, icon clarity for low-literacy and elderly users</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- SECTION 09: OUTCOME -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">09</span>Outcome</h3>
+
+          <div class="subgroup">
+
+            <div class="outcome-stats">
+              <div class="outcome-stat">
+                <div class="num">Live</div>
+                <div class="lbl">Product shipped on iOS &amp; Android App Stores</div>
+              </div>
+              <div class="outcome-stat">
+                <div class="num">4</div>
+                <div class="lbl">Distinct user flows designed end-to-end from scratch</div>
+              </div>
+              <div class="outcome-stat">
+                <div class="num">0&#8594;1</div>
+                <div class="lbl">Full product built from concept to live app</div>
+              </div>
+            </div>
+
+            <h5 style="margin-bottom:12px;">Impact</h5>
+            <ul>
+              <li>Rural patients can access qualified doctors without travelling - from their nearest church or community elder's home</li>
+              <li>Doctors can extend their practice to areas they could never serve before</li>
+              <li>TFC model bridges the digital literacy gap - no smartphone or technical knowledge required from the patient</li>
+              <li>E-prescriptions and lab requisitions eliminate unnecessary travel for paperwork</li>
+              <li>Product is live on Google Play and the App Store</li>
+            </ul>
+
+            <div class="reflection-block" style="margin-top:32px;">
+              <span class="ref-label">What I Learned</span>
+              <p>Designing TeleDoctor taught me that the most impactful UX decisions are often not about the interface at all. The TFC idea - placing technology inside a church or a community elder's home - was not a design decision on a screen. It was a design decision about trust, access, and human behaviour. I learned that when you design for users who are truly underserved, you have to question every assumption about how technology is accessed, not just how it looks. That lesson changed how I think about every project I work on.</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SECTION 10: FUTURE STEPS -->
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+        <div class="group fade-up">
+          <h3><span class="section-num">10</span>Future Steps</h3>
+
+          <div class="subgroup">
+            <ol class="future-list">
+              <li>
+                <span class="future-num">01</span>
+                <div class="future-content">
+                  <strong>Offline mode</strong>
+                  <span>Low connectivity areas need consultations that can buffer and sync when connection returns - critical for rural coverage.</span>
+                </div>
+              </li>
+              <li>
+                <span class="future-num">02</span>
+                <div class="future-content">
+                  <strong>Regional language support</strong>
+                  <span>Tamil, Hindi, Malayalam for patients and TFC workers who cannot read English.</span>
+                </div>
+              </li>
+              <li>
+                <span class="future-num">03</span>
+                <div class="future-content">
+                  <strong>Remote diagnostic tools</strong>
+                  <span>Integrating basic vitals (BP, glucose) from affordable IoT devices at TFCs to improve consultation quality.</span>
+                </div>
+              </li>
+              <li>
+                <span class="future-num">04</span>
+                <div class="future-content">
+                  <strong>Expanding TFC network</strong>
+                  <span>Scaling to mosques, schools, and panchayat offices beyond churches - broadening community trust anchors.</span>
+                </div>
+              </li>
+              <li>
+                <span class="future-num">05</span>
+                <div class="future-content">
+                  <strong>Insurance integration</strong>
+                  <span>Connecting with Ayushman Bharat and state health schemes for zero-cost consultations for eligible patients.</span>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <hr style="border:none;border-top:1px solid #e5e3dc;margin:2.5rem 0;">
+
+      </div><!-- /col-content -->
+    </div><!-- /container -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-icons">
+      <a class="footer-icon" href="https://linkedin.com/in/kanagarajp25" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="footer-icon" href="mailto:kanagarajux@gmail.com">Email</a>
+      <a class="footer-icon" href="#">Resume</a>
+    </div>
+    <p class="footer-copy">Designed &amp; built by Kanagaraj (Raj) Pandiarajan &copy; 2025</p>
+  </footer>
+
+  <!-- SCROLL ANIMATIONS -->
+  <script>
+    const fades = document.querySelectorAll('.fade-up');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    fades.forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>
