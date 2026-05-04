@@ -373,7 +373,7 @@
 
     /* FOOTER */
     footer {
-      margin-top: 80px;
+      margin-top: 0;
       padding: 3rem 2rem;
       border-top: 1px solid #e5e3dc;
       text-align: center;
@@ -414,6 +414,105 @@
     }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
+    /* CONTACT SECTION */
+    .contact-section {
+      background: var(--bg);
+      border-top: 1px solid #e5e3dc;
+      padding: 72px 0 80px;
+    }
+
+    .contact-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .contact-heading {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: #1a1a1a;
+      margin-bottom: 36px;
+    }
+
+    .contact-cards {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      margin-bottom: 32px;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 18px 8px 18px 16px;
+      text-decoration: none;
+      color: #4a4a4a;
+      background: transparent;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      border-left: 3px solid transparent;
+      transition: border-left-color 0.22s ease, transform 0.22s ease, color 0.22s ease;
+    }
+
+    .contact-card:hover {
+      border-left-color: #C2622D;
+      transform: translateX(6px);
+      color: #1a1a1a;
+    }
+
+    .contact-card-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #a0a0a0;
+      min-width: 80px;
+      transition: color 0.22s;
+    }
+
+    .contact-card:hover .contact-card-label { color: #C2622D; }
+
+    .contact-card-value {
+      font-size: 15px;
+      font-weight: 400;
+      color: #4a4a4a;
+      flex: 1;
+    }
+
+    .contact-card-arrow {
+      font-size: 16px;
+      color: #C2622D;
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: opacity 0.22s, transform 0.22s;
+    }
+
+    .contact-card:hover .contact-card-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .contact-availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 400;
+      color: #6b6b6b;
+    }
+
+    .avail-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      animation: pulse-green 1.8s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
     /* RESPONSIVE */
     @media (max-width: 768px) {
       body { margin-top: 80px; }
@@ -453,7 +552,7 @@
       <a class="nav-logo" href="index.html">Kanagaraj (Raj)</a>
       <ul class="nav-links">
         <li><a href="#my-work">Projects</a></li>
-        <li><a href="#">Resume</a></li>
+        <li><a href="assets/Raj_Pandiarajan_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
         <li><a href="about-me.html">About Me</a></li>
       </ul>
     </div>
@@ -476,7 +575,7 @@
           </p>
           <div class="cta-group fade-up">
             <a href="#my-work" class="btn btn-primary">View My Work</a>
-            <a href="mailto:kanagarajux@gmail.com" class="btn btn-secondary">Get in Touch</a>
+            <a href="#contact" class="btn btn-secondary">Get in Touch</a>
           </div>
         </section>
 
@@ -565,12 +664,40 @@
     </div><!-- /container -->
   </main>
 
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="contact-section fade-up">
+    <div class="contact-inner">
+      <h2 class="contact-heading">Let's create something worth using.</h2>
+      <div class="contact-cards">
+        <a href="https://mail.google.com/mail/?view=cm&to=kanagarajux@gmail.com&su=Let%27s%20connect" target="_blank" rel="noopener" class="contact-card">
+          <span class="contact-card-label">Email</span>
+          <span class="contact-card-value">kanagarajux@gmail.com</span>
+          <span class="contact-card-arrow">→</span>
+        </a>
+        <a href="https://linkedin.com/in/kanagarajp25" target="_blank" rel="noopener" class="contact-card">
+          <span class="contact-card-label">LinkedIn</span>
+          <span class="contact-card-value">linkedin.com/in/kanagarajp25</span>
+          <span class="contact-card-arrow">→</span>
+        </a>
+        <a href="tel:+916381945595" class="contact-card">
+          <span class="contact-card-label">Phone</span>
+          <span class="contact-card-value">+91 63819 45595</span>
+          <span class="contact-card-arrow">→</span>
+        </a>
+      </div>
+      <div class="contact-availability">
+        <span class="avail-dot"></span>
+        Available for freelance &amp; full-time roles
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer>
     <div class="footer-icons">
       <a class="footer-icon" href="https://linkedin.com/in/kanagarajp25" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="footer-icon" href="mailto:kanagarajux@gmail.com">Email</a>
-      <a class="footer-icon" href="#">Resume</a>
+      <a class="footer-icon" href="https://mail.google.com/mail/?view=cm&to=kanagarajux@gmail.com&su=Let's%20connect" target="_blank" rel="noopener">Email</a>
+      <a class="footer-icon" href="assets/Raj_Pandiarajan_Resume.pdf" target="_blank" rel="noopener">Resume</a>
     </div>
     <p class="footer-copy">Designed &amp; built by Kanagaraj (Raj) Pandiarajan &copy; 2025</p>
   </footer>
