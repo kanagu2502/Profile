@@ -253,23 +253,22 @@
       border-radius: 6px;
       overflow: hidden;
       background: #f0eeea;
-      min-height: 260px;
+      height: 280px;
       flex-shrink: 0;
+      position: relative;
     }
 
     .project-cover {
       width: 100%;
       height: 100%;
-      position: relative;
     }
 
     .project-cover img {
-      position: absolute;
-      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: top;
+      object-position: center top;
+      display: block;
       transition: transform 0.4s cubic-bezier(.02,.01,.47,1);
     }
 
@@ -561,7 +560,7 @@
 
       .project-cover-wrap {
         width: 100%;
-        min-height: 200px;
+        height: 220px;
       }
 
       .project-meta {
